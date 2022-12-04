@@ -1,1 +1,326 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Default meta tags for mobile responsiveness -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suleyman's Personal Website">
+    <title>Suleyman Musayev | Portfolio</title>
+    <link rel="icon" href="./images/m.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="./images/m192.png">
+    <link rel="manifest" href="./manifest.json">
+    <!-- Bootstrap, using for navbar, cards, grid system components -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- AOS (Animate on Scroll) Library CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <!-- Font awesome script for the SQL Database Icon (NEW way of importing font-awesome icons) -->
+    <script src="https://kit.fontawesome.com/1120901f57.js" crossorigin="anonymous"></script>
+    <!-- Font awesome library for fa-icons (OLD way of importing font-awesome icons) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" loading="lazy">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KX3F3C3');</script>
+    <!-- Register service workers -->
+    <script src="./js/loadServiceWorker.js"></script>
+    <!-- Script for Iconify web components (e.g. Scratch logo in 'Projects' section)-->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX3F3C3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" data-aos="fade-down"
+    data-aos-delay="200">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContents" aria-controls="navbarContents" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-start" id="navbarContents">
+            <a href="#home" class="nav-link" id="homeLink"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
+            <a href="#about" class="nav-link" id="aboutLink"><i class="fa fa-fw fa-user"></i>&nbsp;About</a>
+            <a href="#tools" class="nav-link" id="toolsLink"><i class="fa fa-code" style="color: white; padding: 0"></i>&nbsp;Languages & Tools</a>
+            <a href="#projects" class="nav-link" id="projectsLink"><i class="fa-solid fa-laptop"></i>&nbsp;Projects</a>
+            <a href="#contact" class="nav-link" id="contactLink"><i class="fa fa-fw fa-envelope"></i>&nbsp;Contact</a>
+        </div>
+    </nav>
+    <div id="home" class="homeDiv">
+        <div class="container-fluid homeElements">
+            <h3 class="welcomeText">Hello, I'm Suleyman.</h3> 
+            <h1 class="dynamicText">
+                <span class="text-type" data-wait="1000"
+                    data-words='["A software developer.", "A commodity trader.", "A linguist."]'></span>
+            </h1>
+            <a href="#projects" class="btn checkMyWorkBtn"><span class="btnText">My projects</span=></a>
+        </div>
+    </div>
+    <!-- Using Bootstrap Grid System -->
+    <div id="about" class="container-fluid aboutDiv">
+        <div class="aboutMe" data-aos="fade-down" data-aos-delay="200">
+            <h1 id="aboutMeHeading">About me</h1>
+        </div>
+        <div class="row">
+            <div class="aboutMe" data-aos="fade-down" data-aos-delay="400">
+                <p id="aboutMeText">
+                    A software developer, former commodity trader, and linguist. 
+                    <br>
+                    <br>
+                    I'm a programming enthusiast and self-taught web developer who likes
+                    learning new languages and technologies that allow solving complex
+                    problems and building robust applications. I learned HTML, CSS and JS
+                    through online courses, books and video tutorials but my first
+                    "serious" programming language is Ruby, which has allowed me to make a
+                    turn in my career track towards web development and software
+                    engineering. I am also skilled in Python, SQL and Bash.
+                    I would like to expand by skillset by adding C, C++ and Rust to the
+                    list of languages I work with.
+                    <br>
+                    <br>
+                    In the past I have worn many hats, I was a foreign exchange student at
+                    US high school, majored in linguistics, worked as interpreter, served
+                    in administrative and managerial roles at an oil company, tried myself
+                    in commodity trading. I am an international member of Mensa, and as 
+                    hobby I do semi-professional swimming and metal welding.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="tools" class="toolsDiv">
+        <div class="container-fluid">
+            <div class="row toolsHeading header-make-center">
+                <div data-aos="fade-down" data-aos-delay="200" class="col-xl-2">
+                    <h1 id="toolsHeadingText">Languages & Tools</h1>
+                </div>
+            </div>
+            <div class="row toolsTech">
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="250">
+                    <span class="iconify" data-icon="vscode-icons:file-type-ruby" data-width="40" data-height="40"></span>
+                    <p id="toolName">Ruby</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="250">
+                    <span class="iconify" data-icon="vscode-icons:file-type-rails" data-width="40" data-height="40"></span>
+                    <p id="toolName">Ruby on Rails</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="250">
+                    <span class="iconify" data-icon="vscode-icons:file-type-python" data-width="40" data-height="40"></span>
+                    <p id="toolName">Python</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="400">
+                    <span class="iconify" data-icon="healthicons:database" style="color: #00bef2;" data-width="40" data-height="40"></span>
+                    <p id="toolName">SQL</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="50">
+                    <span class="iconify" data-icon="vscode-icons:file-type-pgsql" data-width="40" data-height="40"></span>
+                    <p id="toolName">PostgreSQL</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="150">
+                    <span class="iconify" data-icon="vscode-icons:file-type-js-official" data-width="40" data-height="40"></span>
+                    <p id="toolName">JavaScript</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="100">
+                    <span class="iconify" data-icon="vscode-icons:file-type-css" data-width="40" data-height="40"></span>
+                    <p id="toolName">CSS3</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="50">
+                    <span class="iconify" data-icon="vscode-icons:file-type-html" data-width="40" data-height="40"></span>
+                    <p id="toolName">HTML5</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="450">
+                    <span class="iconify" data-icon="la:markdown" style="color: black;" data-width="40" data-height="40"></span>
+                    <p id="toolName">Markdown</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="500">
+                    <span class="iconify" data-icon="logos:bash-icon" data-width="40" data-height="40"></span>
+                    <p id="toolName">Bash</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="50">
+                    <span class="iconify" data-icon="vscode-icons:file-type-docker2" data-width="40" data-height="40"></span>
+                    <p id="toolName">Docker</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="1150">
+                    <span class="iconify" data-icon="bi:git" data-width="40" data-height="40" style="color: #f34f29"></span>
+                    <p id="toolName">Git</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="1150">
+                    <span class="iconify" data-icon="logos:heroku-icon" style="color: black;" data-width="40" data-height="40"></span>
+                    <p id="toolName">Heroku</p>
+                </div>
+                <div class="tool col-4 col-sm-4 col-md-4 col-lg-3 col-xl-1" data-aos="fade-down" data-aos-delay="1150">
+                    <span class="iconify" data-icon="logos:aws" data-width="40" data-height="40"></span>
+                    <p id="toolName">AWS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projects" class="container projectsDiv">
+        <div class="row header-make-center">
+            <h1 class="project-and-contact-header" data-aos="fade-down" data-aos-delay="200" id="projectsHeader">Projects</h1>
+        </div>
+        <div id="showNextProject" class="carousel slide carouselTooltip" data-ride="carousel" data-aos="fade-down" data-aos-delay="400">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href="https://github.com/msuliq/LearnRuby" target="_blank" rel="noopener noreferrer">
+                    <div class="text-center">
+                        <i class="fa-brands fa-twitter fa-6x fontawesome-logo"></i>
+                    </div>
+                    <div class="carousel-caption">
+                        <h5 id="projectName">Twitter Clone</h5>
+                        <p id="projectDesc">Microblogging app with minimal required functionality</p>
+                        <p id="projectDesc2">Created using Ruby on Rails 4 and upgraded to Rails 7</p>
+                    </div>
+                </a>
+              </div>
+              <div class="carousel-item ">
+                <a href="https://github.com/msuliq/rails-microblog" target="_blank" rel="noopener noreferrer">
+                    <div class="text-center">
+                        <i class="fa-solid fa-gem fa-6x fontawesome-logo"></i>
+                    </div>
+                    <div class="carousel-caption">
+                        <h5 id="projectName">Self-study guide</h5>
+                        <p id="projectDesc">Guide to kickstart careers in web development</p>
+                        <p id="projectDesc2">Focuses on Ruby, Rails, Git, HTML, CSS and other basic skills</p>
+                    </div>
+                </a>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#showNextProject" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#showNextProject" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            <ol class="carousel-indicators">
+                <li data-target="#showNextProject" data-slide-to="0" class="active"></li>
+                <li data-target="#showNextProject" data-slide-to="1"></li>
+            </ol>
+        </div>
+    </div>
+    <div id="contact" class="container contactDiv">
+        <div class="row header-make-center">
+            <h1 class="project-and-contact-header" data-aos="fade-down" data-aos-delay="200">Contact</h1>
+        </div>
+        <div class="row contact-row">
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card h-100" data-aos="fade-down" data-aos-delay="600">
+                    <a href="https://www.linkedin.com/in/smusayev/">
+                        <div class="text-center">
+                            <i id="contactIconOne" class="fa-brands fa-linkedin-in fa-4x" aria-hidden="true"></i>
+                            <br>
+                            <h5 id="contactName">LinkedIn</h5>
+                            <p class="contactText">Checkout my professional background</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card h-100" data-aos="fade-down" data-aos-delay="600">
+                    <a href="https://github.com/msuliq">
+                        <div class="text-center">
+                            <i id="contactIconTwo" class="fab fa-github fa-4x" aria-hidden="true"></i>
+                            <br>
+                            <h5 id="contactName">GitHub</h5>
+                            <p class="contactText">Checkout my coding activity</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card h-100" data-aos="fade-down" data-aos-delay="600">
+                    <a href="https://stackoverflow.com/users/18576304/msuliq">
+                        <div class="text-center">
+                            <i id="contactIconThree" class="fab fa-stack-overflow fa-4x" aria-hidden="true"></i>
+                            <br>
+                            <h5 id="contactName">Stackoverflow</h5>
+                            <p class="contactText">I guess, you can assume that I don't ask many questions B)</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <footer class="col" style="text-align: center; margin-top: 5%;" data-aos="fade-down" data-aos-delay="1000">
+            <p id="copyright" style="margin-bottom: 0;"></p>
+            <img src="https://komarev.com/ghpvc/?username=msuliq&color=brightgreen&label=Github Profile Views" alt="GitHub Profile Views"/>
+            <a href="https://github.com/msuliq" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/github/followers/msuliq.svg?style=social&label=Follow" alt="GitHub Followers"/>
+            </a>
+        </footer>
+    </div>
+    <!-- Bootstrap Scripts; needed for certain for components like collasped navbar functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init(
+        {
+        easing: "ease",
+        duration: 1000,
+        once: true
+        });
+    </script>
+    <!-- Word Changing Text; insert script in body since words are changing there -->
+    <script type="text/javascript" src="./js/script.js"></script>
+    <!-- Added dynamic date script, Removed hardcoded dates -->
+    <script type="text/javascript" src="./js/date.js"></script>
+    <!-- Added a script to close the navbar when user clicks outside the navbar OR when user clicks on the navbar links -->
+    <script type="text/javascript" src="./js/closeNavBar.js"></script>
+    <!-- Added a script to detect mobile view, so that we can remove the padding-left: 1rem in the nav links of the navbar. This helps to align the navbar in mobile view. -->
+    <script type="text/javascript" src="./js/detectMobileView.js"></script>
+    <!-- 
+        Tippy.js tooltip script
+        Using Tippy.js instead of Bootstrap for tooltips due to:
+            - Duplicate tooltip issues with Bootstrap
+            - After you click 'Play' button, 2 tooltips appear - the default HTML Title tooltip AND Bootstrap tooltip for 'Pause' button
+        Reference: https://atomiks.github.io/tippyjs/v6/getting-started/ 
+     -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+        // Call `tippy()` with a CSS selector and a `content` prop to generate the tooltips
+        // Touch prop (used here, 'touch': false means touch events in mobile won't trigger tooltip from showing)--> refer to https://atomiks.github.io/tippyjs/v6/all-props/#touch
+        // Trigger prop (not used here, but could be useful next time) ---> https://atomiks.github.io/tippyjs/v6/all-props/#trigger
+        tippy("#homeLink", {
+            content: "Home Page 🌐",
+            touch: false
+        });
+        tippy("#aboutLink", {
+            content: "About Me 👨‍💻",
+            touch: false
+        });
+        tippy('#toolsLink', {
+            content: "Languages & Tools I've Used 🛠️",
+            touch: false
+        });
+        tippy("#projectsLink", {
+            content: "Projects I've Done 💻",
+            touch: false
+        });
+        tippy("#contactLink", {
+            content: "Contact Me ✉️",
+            touch: false
+        });
+        tippy(".carouselTooltip", {
+            content: "Currently there are 2 projects available 💻",
+            placement: "bottom"
+        })
+    </script>
+    <!-- Bootstrap script to change the amount of time between automatic carousel item switches -->
+    <script>
+        // data-interval="timeInMilliSeconds" is not working for the very first carousel item
+        // Hence used an alternative method instead - https://getbootstrap.com/docs/4.5/components/carousel/#carouseloptions 
+        // This script basically grabs all the carousel items under the carousell, and sets an interval of 20s before switching to the next carousel item
+        $('.carousel').carousel({
+            interval: 20000
+        })
+    </script>
+</body>
+</html>
