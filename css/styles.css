@@ -257,8 +257,11 @@
   }
   
   .fa-solid.fa-gem {
-    color: #D51F06;
+    color: #cc0000;
+  }
 
+  .fa-solid.fa-gem:hover {
+    color: #cc342d;
   }
   
   #projectName {
