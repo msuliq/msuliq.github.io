@@ -4,8 +4,8 @@
     <!-- Default meta tags for mobile responsiveness -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Suleyman Musayev is a software engineer and web developer &amp; Programming enthusiast building applications at scale using Ruby on Rails, Python, Javascript, C/C++">
-    <title>Suleyman Musayev | msuliq</title>
+    <meta name="description" content="Suleyman Musayev - Senior Software Engineer specializing in PKI, authentication systems, and application security. Building secure, scalable applications with Ruby on Rails at SSL.com.">
+    <title>Suleyman Musayev | Senior Software Engineer</title>
     <link rel="icon" href="./images/m.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="./images/m192.png">
     <link rel="manifest" href="./manifest.json">
@@ -26,74 +26,119 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-RE9SDT8WBG');
     </script>
+    <script>
+      // Theme toggle functionality
+      function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      }
+      
+      function toggleTheme() {
+        const html = document.documentElement;
+        const isDark = html.classList.contains('dark');
+        
+        if (isDark) {
+          html.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+      
+      // Initialize theme before page renders
+      initTheme();
+    </script>
+    <style>
+      .dark {
+        color-scheme: dark;
+      }
+    </style>
 </head>
-  <body class=" object-fill bg-cover bg-center bg-no-repeat md:overflow-y-hidden overflow-x-hidden" style="background-image: url('images/background.jpg');">
+<body class="bg-cover bg-center bg-no-repeat transition-colors duration-300" style="background-image: url('images/background.jpg');">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX3F3C3"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="flex h-fit items-left justify-left md:pl-10 md:pt-10 pb-6">
-        <div class="flex flex-col w-fit xl:w-2/3 bg-white bg-opacity-50 text-gray-900 text-justify gap-1 md:gap-2 md:rounded-xl p-2 md:p-6">
+    <div class="flex h-fit items-left justify-left p-2 md:p-32">
+        <div class="flex flex-col w-fit xl:w-3/5 bg-white dark:bg-gray-800 bg-opacity-50 dark:bg-opacity-90 text-gray-900 dark:text-gray-100 text-justify gap-2 md:gap-3 rounded-xl p-2 md:p-6 transition-colors duration-300 relative">
+            <!-- Theme Toggle Button -->
+            <button 
+              onclick="toggleTheme()" 
+              class="absolute top-2 right-2 md:top-4 md:right-4 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200"
+              aria-label="Toggle theme"
+              title="Toggle light/dark mode"
+            >
+              <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-800 dark:text-gray-200 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Moon icon for light mode -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+              </svg>
+              <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-200 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Sun icon for dark mode -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+            </button>
+
             <h1 class="font-semibold md:font-bold text-base md:text-2xl">Suleyman Musayev</h1>
+            <p class="text-gray-700 dark:text-gray-300 text-xs md:text-sm italic">Senior Software Engineer | PKI & Authentication Systems</p>
 
-            <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              I am a software engineer with a passion for building scalable, secure, and innovative web applications, a 
-              programming enthusiast and member of Mensa, I bring a sharp analytical mindset and creative 
-              problem-solving skills to every project I tackle.
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
+              I'm a senior software engineer specializing in authentication systems, PKI, and application security. 
+              Currently, I architect and maintain security-critical systems at <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://www.ssl.com/">SSL.com</a>, 
+              the 8th largest PKI vendor globally, where I build solutions that protect millions of users.
             </p>
 
-            <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              My technical journey began with a passion for competitive physics and mathematics, which has since evolved 
-              into a career of building robust, scalable, and user-centric applications. Proficient in Ruby, Python, 
-              JavaScript, C, and C++, I thrive on solving complex technical challenges with creativity and precision.
-            </p>
-            
-            <!-- <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              In my current role at <a class="underline" href="https://www.ssl.com/">SSL.com</a>, I've delivered 
-              mission-critical projects, including the design and implementation of a modern authentication engine 
-              supporting advanced flows like OAuth2, OpenID Connect, and SAML. I also excel in database optimization, 
-              significantly improving performance and resilience in high-load production systems handling thousands of 
-              requests per second. My work reflects my commitment to security, scalability, and exceptional user 
-              experiences.
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
+              I design systems that need to work flawlessly under pressure. My authentication engine serves 10,000+ daily users, 
+              and I've reduced fraud attempts to zero through custom security implementations including dynamic risk scoring, 
+              device fingerprinting, and behavioral pattern analysis. I've also improved system fault tolerance by 87% and 
+              prevented numerous security incidents through proactive architecture and code review.
             </p>
 
-            <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              Previously, I was an integral part of a startup, 
-              <a class="underline" href="https://www.app.midstay.com/">Midstay</a>, where I contributed to building a 
-              platform connecting digital nomads and businesses, showcasing my ability to innovate and deliver in 
-              dynamic environments. I am also a dedicated open-source contributor, driven by a belief in giving back to 
-              the community and helping shape tools that developers rely on.
-            </p> -->
-
-            <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              <strong>Technical Expertise</strong>
-              <ul class="list-disc pl-5 py-auto text-gray-900 text-xs md:text-sm xl:text-base">
-                <li>Backend Development: Expertise in web applications, authentication systems, and database design.</li>
-                <li>Scalable Systems: Experienced with Docker, AWS, Google Cloud, and horizontal scaling solutions.</li>
-                <li>Performance Optimization: Skilled in SQL query optimization, database refactoring, and enhancing system resilience.</li>
-                <li>Security: Proficient in encryption and cryptography, multi-factor authentication, and building secure, modular systems.</li>
-                <li>Collaboration Tools: Versed in CI/CD workflows, Capistrano, Heroku, and Render.</li>
-              </ul>
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
+              My expertise centers on the intersection of cryptography and practical security. I've implemented OAuth2 and SAML 
+              authentication flows with certificate-based encryption, built MPIC compliance systems per Baseline Requirements, 
+              and developed cross-domain authentication solutions with advanced session security features. I work extensively 
+              with certificate lifecycle management at scale—SSL.com issues thousands of certificates daily across TLS, 
+              code signing, and other use cases.
             </p>
 
-            <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              I am passionate about innovation and solving problems that others shy away from. My work is guided by a 
-              user-first approach, striving to build intuitive, reliable, and impactful solutions. Collaboration is at 
-              the heart of my philosophy; I believe in fostering a supportive, ego-free environment where teams thrive 
-              together.
-            </p>
-            <p class="text-gray-900 text-xs md:text-sm xl:text-base">
-              Looking ahead, I am eager to contribute to cutting-edge technology fields leveraging my skills to develop 
-              commercially viable prototypes and solve real-world problems. I aim to play a role in making 
-              groundbreaking technologies accessible and transformative for society.
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
+              While my primary work is in Ruby on Rails and JavaScript, I'm also proficient in Python, C, and C++. I thrive 
+              on backend challenges that require unconventional thinking—the kind of problems where security, performance, 
+              and user experience must all align perfectly.
             </p>
 
-            <ul class="flex flex-row justify-between w-full mt-2 md:mt-3 text-xs md:text-sm xl:text-base whitespace-nowrap">
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
+              I contribute to the developer community through open source work, including 
+              <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://github.com/msuliq/omniauth_oidc">omniauth_oidc</a>, a library for 
+              OpenID Connect authentication. I've also written about combating 
+              <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://medium.com/@msuliq/how-to-stop-sms-pump-fraud-from-draining-your-wallet-and-sanity-11ea5435608d">SMS pump fraud</a> 
+              and implementing 
+              <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://msuliq.medium.com/authenticating-with-omniauth-and-openid-connect-oidc-in-ruby-on-rails-applications-e136ec5b48c0">OIDC authentication</a> 
+              on <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://msuliq.medium.com/">Medium</a>, sharing practical solutions to 
+              real-world security challenges.
+            </p>
+
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
+              Previously, I was part of the early core team at <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://app.midstay.com/">Midstay</a>, 
+              where I built sophisticated features across the full stack. Before transitioning to software engineering, I worked 
+              in big oil and commodity trading—a background that taught me to think systematically about complex problems.
+            </p>
+
+            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg font-medium">
+              I'm currently exploring senior engineering opportunities where I can leverage my specialized expertise in PKI, 
+              authentication systems, and security architecture. If you're building systems where security is paramount and 
+              complexity is the norm, let's connect.
+            </p>
+
+            <ul class="flex flex-row justify-between w-full mt-2 md:mt-3 text-sm md:text-base xl:text-lg whitespace-nowrap">
                 <li>
-                  <a class="flex flex-col md:flex-row items-center" href="https://www.linkedin.com/in/smusayev" title="Suleyman Musayev on Linkedin">
+                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://www.linkedin.com/in/smusayev" title="Suleyman Musayev on LinkedIn">
                     <span class="fa-stack fa-lg">
                       <i class="fa-solid fa-square fa-stack-2x"></i>
                       <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -102,7 +147,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="flex flex-col md:flex-row items-center" href="https://github.com/msuliq" title="Suleyman Musayev on GitHub">
+                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://github.com/msuliq" title="Suleyman Musayev on GitHub">
                     <span class="fa-stack fa-lg">
                       <i class="fa-solid fa-square fa-stack-2x"></i>
                       <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
@@ -111,7 +156,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="flex flex-col md:flex-row items-center" href="https://rubygems.org/profiles/msuliq" title="Suleyman Musayev on RubyGems">
+                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://rubygems.org/profiles/msuliq" title="Suleyman Musayev on RubyGems">
                     <span class="fa-stack fa-lg">
                       <i class="fa-solid fa-square fa-stack-2x"></i>
                       <i class="fa-solid fa-gem fa-stack-1x fa-inverse"></i>
@@ -120,15 +165,21 @@
                   </a>
                 </li>
                 <li>
-                  <a class="flex flex-col md:flex-row items-center" href="https://msuliq.medium.com/" title="Suleyman Musayev on Medium">
+                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://stackoverflow.com/users/18576304/msuliq" title="Suleyman Musayev on Stack Overflow">
                     <span class="fa-stack fa-lg">
                       <i class="fa-solid fa-square fa-stack-2x"></i>
-                      <i class="fa-brands fa-medium fa-stack-1x fa-inverse"></i>
+                      <i class="fa-brands fa-stack-overflow fa-stack-1x fa-inverse"></i>
                     </span>
-                    Medium
+                    Stack Overflow
                   </a>
                 </li>
             </ul>
+
+            <div class="mt-2 pt-2 border-t border-gray-400 dark:border-gray-600 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+              <p><strong>Location:</strong> Ashgabat, Turkmenistan (UTC+5) | <strong>Work:</strong> Remote, available globally</p>
+              <p><strong>Languages:</strong> English, Russian, Turkmen (fluent) | Turkish (conversational)</p>
+            </div>
         </div>
     </div>
 </body>
+</html>
