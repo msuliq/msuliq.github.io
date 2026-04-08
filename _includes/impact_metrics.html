@@ -1,0 +1,24 @@
+{%- comment -%}
+  Impact metrics row.
+  Pulls 4 badges from site.data.site.metrics[page.variant], falling back
+  to the canonical set if no variant is specified. Mobile: 2-col grid.
+  Desktop: 4-col single row.
+{%- endcomment -%}
+
+{%- assign variant = page.variant | default: 'canonical' -%}
+{%- assign metrics = site.data.site.metrics[variant] -%}
+
+<section id="impact" class="container-narrow pb-16 sm:pb-20">
+  <ul class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+    {%- for m in metrics -%}
+    <li class="rounded-xl border border-hairline bg-surface p-5 sm:p-6">
+      <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink leading-none">
+        {{ m.value }}
+      </p>
+      <p class="mt-2 text-xs sm:text-sm text-muted leading-snug">
+        {{ m.label }}
+      </p>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

@@ -1,0 +1,117 @@
+{%- comment -%}
+  Document head — meta, title, OG/Twitter, JSON-LD, theme bootstrap,
+  analytics, stylesheet. Per-page values are pulled from page front matter
+  with sensible fallbacks to site defaults from _data/site.yml.
+{%- endcomment -%}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+{%- assign page_title = page.title | default: site.data.site.author.name -%}
+{%- assign page_desc  = page.description | default: site.description -%}
+{%- assign page_url   = page.url | replace: 'index.html', '' | absolute_url -%}
+{%- assign og_image   = '/images/og-image.jpg' | absolute_url -%}
+
+<title>{{ page_title }} | {{ site.data.site.author.short_title }}</title>
+<meta name="description" content="{{ page_desc }}">
+<meta name="author" content="{{ site.data.site.author.name }}">
+
+<link rel="canonical" href="{{ page_url }}">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="{{ site.data.site.author.name }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_desc }}">
+<meta property="og:url" content="{{ page_url }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.data.site.author.name }} — {{ site.data.site.author.short_title }}">
+<meta property="profile:first_name" content="Suleyman">
+<meta property="profile:last_name" content="Musayev">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_desc }}">
+<meta name="twitter:image" content="{{ og_image }}">
+<meta name="twitter:image:alt" content="{{ site.data.site.author.name }} — {{ site.data.site.author.short_title }}">
+
+<!-- Favicons -->
+<link rel="icon" href="{{ '/images/m.png' | relative_url }}" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ '/images/m192.png' | relative_url }}">
+<link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+
+<!-- Performance: warm up the analytics origins so the first request is faster -->
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+
+<!--
+  Theme bootstrap — runs synchronously before paint to prevent FOUC.
+  Default is dark; only flips to light if the user explicitly chose it.
+-->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) { /* localStorage unavailable — keep default dark */ }
+  })();
+</script>
+
+<!-- Compiled Tailwind output -->
+<link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
+
+<!-- JSON-LD: Person schema for Google knowledge panel + rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.data.site.author.name }}",
+  "givenName": "Suleyman",
+  "familyName": "Musayev",
+  "url": "{{ '/' | absolute_url }}",
+  "image": "{{ '/images/01.jpg' | absolute_url }}",
+  "jobTitle": "{{ site.data.site.author.short_title }}",
+  "description": "{{ page_desc | strip_newlines | escape }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ashgabat",
+    "addressCountry": "TM"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "SSL.com",
+    "url": "https://www.ssl.com"
+  },
+  "knowsAbout": [
+    "Authentication",
+    "Identity and Access Management",
+    "Public Key Infrastructure",
+    "OAuth 2.0",
+    "OpenID Connect",
+    "SAML",
+    "Application Security",
+    "Fraud Detection",
+    "Ruby on Rails",
+    "Distributed Systems"
+  ],
+  "sameAs": [
+    {%- assign last = site.data.site.social | size | minus: 1 -%}
+    {%- for s in site.data.site.social -%}
+    "{{ s.url }}"{% unless forloop.index0 == last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+
+{% include analytics.html %}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OG image generator — screenshot this at 1200×630</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /*
+     * The card is fixed at 1200×630 — the exact aspect ratio LinkedIn,
+     * Twitter/X, Facebook, and Slack expect for OG images.
+     *
+     * Workflow:
+     *   1. open this file in Chrome
+     *   2. Cmd+Shift+P → "Capture full size screenshot"
+     *      (or right-click → Inspect → 3-dot menu → Capture full size screenshot)
+     *   3. Save as ../images/og-image.jpg (use Preview to convert PNG → JPG)
+     */
+    .card {
+      width: 1200px;
+      height: 630px;
+      background:
+        radial-gradient(ellipse at top left, rgba(37, 99, 235, 0.35), transparent 55%),
+        radial-gradient(ellipse at bottom right, rgba(96, 165, 250, 0.18), transparent 60%),
+        linear-gradient(135deg, #09090b 0%, #18181b 50%, #09090b 100%);
+      color: #fafafa;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: center;
+      padding: 80px 88px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Soft border to give it a definition on white feeds */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(96, 165, 250, 0.18);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .headshot {
+      width: 280px;
+      height: 280px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                  0 0 0 1px rgba(96, 165, 250, 0.25);
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .eyebrow {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #60a5fa;
+    }
+
+    .name {
+      font-size: 76px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: #fafafa;
+    }
+
+    .tagline {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: #a1a1aa;
+      max-width: 700px;
+    }
+
+    .footer {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 22px;
+      color: #71717a;
+    }
+
+    .footer::before {
+      content: "";
+      width: 56px;
+      height: 2px;
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="headshot" src="../images/01.jpg" alt="">
+
+    <div class="body">
+      <p class="eyebrow">Suleyman Musayev</p>
+      <h1 class="name">Auth &amp; Identity<br>Engineer</h1>
+      <p class="tagline">
+        Core architect at a top-10 PKI vendor.
+        Open to senior &amp; staff roles.
+      </p>
+      <p class="footer">msuliq.github.io</p>
+    </div>
+  </div>
+</body>
+</html>

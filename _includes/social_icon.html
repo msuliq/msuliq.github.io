@@ -1,0 +1,12 @@
+{%- comment -%}
+  Renders a social icon by name.
+  Usage: {% include social_icon.html icon="github" size="h-5 w-5" %}
+{%- endcomment -%}
+{%- assign size = include.size | default: "h-5 w-5" -%}
+{%- case include.icon -%}
+{%- when "linkedin" -%}{% include icons/linkedin.html size=size %}
+{%- when "github" -%}{% include icons/github.html size=size %}
+{%- when "medium" -%}{% include icons/medium.html size=size %}
+{%- when "stackoverflow" -%}{% include icons/stackoverflow.html size=size %}
+{%- when "rubygems" -%}{% include icons/rubygems.html size=size %}
+{%- endcase -%}

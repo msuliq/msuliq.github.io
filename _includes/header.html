@@ -1,0 +1,35 @@
+{%- comment -%}
+  Top navigation.
+  - Logo links to /
+  - In-page anchor links scroll to sections (smooth scroll set in input.css)
+  - Theme toggle uses sun/moon icons; the active icon is shown via Tailwind
+    `dark:hidden` / `hidden dark:inline` so we never need JS to swap them.
+{%- endcomment -%}
+
+<header class="border-b border-hairline/60">
+  <div class="container-narrow flex items-center justify-between py-5">
+    <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 font-semibold text-ink no-underline tracking-tight">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-accent/10 text-accent font-bold">
+        SM
+      </span>
+      <span class="hidden sm:inline">{{ site.data.site.author.name }}</span>
+    </a>
+
+    <nav class="flex items-center gap-1 sm:gap-2 text-sm" aria-label="Primary">
+      <a href="#work" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Work</a>
+      <a href="#open-source" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Open source</a>
+      <a href="#writing" class="hidden md:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Writing</a>
+      <a href="#contact" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Contact</a>
+
+      <button
+        type="button"
+        id="theme-toggle"
+        class="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-md border border-hairline text-muted hover:text-ink hover:border-ink/30 transition-colors"
+        aria-label="Toggle color theme"
+        title="Toggle color theme">
+        <span class="dark:hidden">{% include icons/moon.html size="h-4 w-4" %}</span>
+        <span class="hidden dark:inline">{% include icons/sun.html size="h-4 w-4" %}</span>
+      </button>
+    </nav>
+  </div>
+</header>

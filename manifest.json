@@ -1,8 +1,8 @@
 {
     "name": "Suleyman Musayev | Portfolio",
     "short_name": "Suleyman Musayev | Portfolio",
-    "theme_color": "#fff",
-    "background_color": "#fff",
+    "theme_color": "#09090b",
+    "background_color": "#09090b",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Suleyman Musayev — Staff Backend Engineer</title>
+  <meta name="author" content="Suleyman Musayev">
+  <meta name="description" content="Staff-track backend engineer specializing in distributed authentication systems at scale.">
+  <link rel="stylesheet" href="resume.css">
+  <style>
+    /*
+     * Single-page overrides for the bigtech variant.
+     * Tightens vertical rhythm just enough to fit a single US Letter page
+     * without dropping any signal. All other styling stays in resume.css.
+     */
+    @page { margin: 0.45in 0.6in; }
+    body { font-size: 9.75pt; line-height: 1.38; }
+    .header { padding-bottom: 8pt; margin-bottom: 11pt; }
+    .name { font-size: 22pt; }
+    .title { font-size: 11pt; margin-top: 2pt; }
+    .contact { margin-top: 5pt; font-size: 8.5pt; }
+    section { margin-top: 9pt; }
+    h2 { margin-bottom: 6pt; padding-bottom: 2pt; }
+    .summary p { font-size: 9.5pt; line-height: 1.42; }
+    .role { margin-bottom: 8pt; }
+    .role-title { font-size: 10.25pt; }
+    .role-meta, .role-location { font-size: 8.5pt; }
+    .role li { font-size: 9.25pt; line-height: 1.4; margin-bottom: 1.5pt; }
+    .skills dl { gap: 3pt 14pt; }
+    .skills dt, .skills dd { font-size: 9pt; }
+    .project { margin-bottom: 4pt; }
+    .project-name { font-size: 9.5pt; }
+    .project-desc { font-size: 9pt; }
+    .meta-line { font-size: 9pt; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="name">Suleyman Musayev</h1>
+    <p class="title">Staff Backend Engineer · Distributed Systems &amp; Scale</p>
+    <p class="contact">
+      <span>slmusayev@gmail.com</span>
+      <span>linkedin.com/in/smusayev</span>
+      <span>github.com/msuliq</span>
+      <span>msuliq.github.io</span>
+      <span>Remote · UTC+5</span>
+    </p>
+  </header>
+
+  <section class="summary">
+    <h2>Summary</h2>
+    <p>
+      Sole architect of a distributed authentication and identity platform at SSL.com, a top-10
+      global PKI vendor — serving tens of thousands of daily users and enabling <strong>10× growth</strong>
+      in digital certificate issuance. Strong fundamentals in distributed systems, performance,
+      and defense in depth. Open to senior and staff backend engineering roles at scale.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="role">
+      <div class="role-header">
+        <p class="role-title">Software Engineer · <span class="company">SSL.com</span></p>
+        <p class="role-meta">Aug 2023 — Present</p>
+      </div>
+      <p class="role-location">Remote · top-10 global PKI vendor · sole architect of auth &amp; identity platform</p>
+      <ul>
+        <li><strong>Sole architect</strong> of a high-scale distributed authentication and identity platform serving tens of thousands of daily users; enabled <strong>10× growth</strong> in TLS, code signing, and identity certificate issuance.</li>
+        <li>Defined the architecture for a distributed system of authentication services, API servers, web applications, and audit-logging pipelines; <strong>led the redesign of the auth engine</strong> for high-volume load and long-term scalability.</li>
+        <li>Built a fully automated certificate issuance pipeline and complex API endpoints for certificate lifecycle management at scale.</li>
+        <li>Implemented <strong>OAuth 2.0, OIDC, SAML, and session-based</strong> authentication with cross-domain flows and external identity provider integrations.</li>
+        <li>Designed fraud detection combining third-party services with custom analytics on behavioral patterns, IP intelligence, device fingerprinting, and CVE-aware protections; <strong>cut SMS pumping fraud loss to zero</strong> and defended against advanced and state-level threat actors.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <p class="role-title">Software Engineer · <span class="company">Midstay</span></p>
+        <p class="role-meta">Aug 2022 — Jan 2024</p>
+      </div>
+      <p class="role-location">Remote · early engineer, 5-person team, ~1k DAU consumer product</p>
+      <ul>
+        <li>Reduced backend latency by up to <strong>5×</strong> through query optimization, indexing, and caching strategy; improved user retention by <strong>15%</strong>.</li>
+        <li>Shipped 4 major product features in 12 months; led incident response against advanced attackers. Final 5 months were a contract wind-down during transition to SSL.com.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <dl>
+      <dt>Languages</dt>
+      <dd>Ruby, JavaScript, Python, SQL, C, C++</dd>
+
+      <dt>Backend</dt>
+      <dd>Ruby on Rails (4–8), REST API design, Sinatra, Sidekiq, background processing</dd>
+
+      <dt>Distributed Systems</dt>
+      <dd>Service decomposition, message queues, audit pipelines, capacity planning, load balancing, query optimization, caching strategy</dd>
+
+      <dt>Data</dt>
+      <dd>PostgreSQL, Redis, indexing strategy</dd>
+
+      <dt>Auth &amp; Identity</dt>
+      <dd>OAuth 2.0, OpenID Connect (OIDC), SAML, JWT, Session-based, mTLS, SSO, Cross-domain auth</dd>
+
+      <dt>Security</dt>
+      <dd>PKI, Certificate Lifecycle, Fraud Detection, Behavioral Analytics, Device Fingerprinting, MPIC, Threat Modeling</dd>
+
+      <dt>Infrastructure</dt>
+      <dd>Docker, Linux, Nginx, AWS, GitHub Actions, CI/CD</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Open Source &amp; Languages</h2>
+    <p class="meta-line">
+      <strong>Maintained gems:</strong> omniauth_oidc (OIDC for Microsoft Entra &amp; Cloudflare), ip_geo_lookup, balloon_hashing, yescrypt. Contributor to Authlogic and openmpic.
+    </p>
+    <p class="meta-line" style="margin-top:3pt">
+      <strong>Languages:</strong> English (Professional) · Russian (Native) · Turkmen (Native) · Turkish (Conversational)
+    </p>
+  </section>
+
+</body>
+</html>

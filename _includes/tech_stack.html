@@ -1,0 +1,36 @@
+{%- comment -%}
+  Tech stack grid. Recruiter SEO + ATS-style scanning. Categories on the
+  left, pills on the right at md+. Stacked on mobile.
+{%- endcomment -%}
+
+<section id="stack" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Stack</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      The tools I reach for.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      Ruby on Rails is home, but the job is to pick the right tool. I've shipped
+      production code in everything below.
+    </p>
+  </div>
+
+  <dl class="divide-y divide-hairline border-y border-hairline">
+    {%- for group in site.data.site.tech_stack -%}
+    <div class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-6 py-5">
+      <dt class="text-sm font-mono text-muted uppercase tracking-wider">
+        {{ group.category }}
+      </dt>
+      <dd>
+        <ul class="flex flex-wrap gap-1.5">
+          {%- for item in group.items -%}
+          <li class="inline-flex items-center rounded-md bg-elevated text-ink px-2.5 py-1 text-sm">
+            {{ item }}
+          </li>
+          {%- endfor -%}
+        </ul>
+      </dd>
+    </div>
+    {%- endfor -%}
+  </dl>
+</section>

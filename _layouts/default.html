@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-variant="{{ page.variant | default: 'canonical' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="bg-canvas text-ink antialiased">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    {% include header.html %}
+
+    <main id="main">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="{{ '/js/app.js' | relative_url }}" defer></script>
+  </body>
+</html>

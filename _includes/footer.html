@@ -1,0 +1,30 @@
+{%- comment -%}
+  Footer. Slim, no nav duplication. Social icons + copyright.
+{%- endcomment -%}
+
+<footer class="border-t border-hairline/60 mt-24">
+  <div class="container-narrow py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+    <p class="text-sm text-muted">
+      &copy; {{ 'now' | date: '%Y' }} {{ site.data.site.author.name }}.
+      Built with Jekyll &amp; Tailwind. Hosted on GitHub Pages.
+    </p>
+
+    <ul class="flex items-center gap-4">
+      {%- for s in site.data.site.social -%}
+      <li>
+        <a
+          href="{{ s.url }}"
+          class="text-muted hover:text-ink no-underline"
+          rel="noopener me"
+          target="_blank"
+          aria-label="{{ s.name }}"
+          data-track="outbound"
+          data-track-label="{{ s.name | downcase }}"
+          data-track-location="footer">
+          {% include social_icon.html icon=s.icon size="h-5 w-5" %}
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</footer>

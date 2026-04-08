@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme tokens.
+ *
+ * Colors are stored as space-separated RGB triplets so Tailwind's
+ * `<alpha-value>` syntax (e.g. `bg-canvas/80`) works correctly.
+ *
+ * Light mode is the fallback. The `.dark` class on <html> overrides
+ * the same variables, so any component using `bg-canvas`, `text-ink`,
+ * etc. switches automatically with no `dark:` prefix needed.
+ */
+@layer base {
+  :root {
+    --color-canvas:       255 255 255;
+    --color-surface:      250 250 250;
+    --color-elevated:     244 244 245;
+    --color-hairline:     228 228 231;
+    --color-ink:          9 9 11;
+    --color-muted:        82 82 91;
+    --color-subtle:       113 113 122;
+    --color-accent:       37 99 235;
+    --color-accent-hover: 29 78 216;
+    --color-success:      22 163 74;
+    --color-warning:      202 138 4;
+  }
+
+  .dark {
+    --color-canvas:       9 9 11;
+    --color-surface:      24 24 27;
+    --color-elevated:     39 39 42;
+    --color-hairline:     39 39 42;
+    --color-ink:          250 250 250;
+    --color-muted:        161 161 170;
+    --color-subtle:       113 113 122;
+    --color-accent:       96 165 250;
+    --color-accent-hover: 147 197 253;
+    --color-success:      74 222 128;
+    --color-warning:      250 204 21;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Visible, accessible focus styles for keyboard users only. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas rounded-sm;
+  }
+
+  /* Headings: tight tracking, balanced wrapping where supported. */
+  h1, h2, h3, h4 {
+    @apply text-ink font-semibold tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Inline links inherit accent color and underline on hover. */
+  a {
+    @apply text-accent underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors;
+  }
+}
+
+@layer components {
+  /* Skip-to-content link for screen readers and keyboard users. */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
+           focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-white
+           focus:no-underline focus:shadow-lg;
+  }
+
+  /* Section wrapper with consistent vertical rhythm. */
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Constrained content container. */
+  .container-narrow {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+  }
+}

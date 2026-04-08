@@ -1,0 +1,38 @@
+{%- comment -%}
+  Resume picker. All five variants in a single row.
+  The currently-active variant (matching page.variant) is highlighted.
+  Each link fires a GA4 event via data-track attributes (wired in app.js).
+{%- endcomment -%}
+
+{%- assign current = page.variant | default: 'canonical' -%}
+
+<div class="rounded-xl border border-hairline bg-surface p-5 sm:p-6">
+  <div class="flex items-start justify-between gap-4 mb-4">
+    <div>
+      <h3 class="text-base font-semibold text-ink">Download résumé</h3>
+      <p class="text-sm text-muted mt-1">Choose the variant that matches the role you have in mind.</p>
+    </div>
+    {% include icons/download.html size="h-5 w-5" %}
+  </div>
+
+  <ul class="flex flex-wrap gap-2">
+    {%- for r in site.data.site.resumes -%}
+    {%- if r.variant == current -%}
+      {%- assign btn_class = "bg-accent text-white border-accent hover:bg-accent-hover" -%}
+    {%- else -%}
+      {%- assign btn_class = "border-hairline text-ink hover:border-ink/30 bg-canvas" -%}
+    {%- endif -%}
+    <li>
+      <a
+        href="{{ r.file | relative_url }}"
+        download
+        class="inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium no-underline transition-colors {{ btn_class }}"
+        data-track="resume_download"
+        data-track-label="{{ r.variant }}"
+        data-track-location="contact">
+        {{ r.label }}
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>

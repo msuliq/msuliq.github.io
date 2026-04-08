@@ -1,0 +1,75 @@
+{%- comment -%}
+  Contact section. Closing CTA, three contact channels, resume picker,
+  and a clear statement of what kind of work the user is open to.
+{%- endcomment -%}
+
+<section id="contact" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Contact</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Let's build something secure together.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      I'm currently open to {{ site.data.site.author.open_to | downcase }}.
+      The fastest way to reach me is to book a 15-minute intro call. Email and LinkedIn also work.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-10">
+    {%- comment -%} Card 1: Calendly {%- endcomment -%}
+    <a
+      href="{{ site.data.site.contact.booking_url }}"
+      target="_blank"
+      rel="noopener"
+      class="group rounded-xl border border-hairline bg-surface p-6 no-underline hover:border-accent/40 transition-colors"
+      data-track="cta"
+      data-track-label="book_intro"
+      data-track-location="contact_section">
+      <div class="flex items-center gap-3 mb-3 text-accent">
+        {% include icons/calendar.html size="h-5 w-5" %}
+        <span class="text-sm font-mono uppercase tracking-wider">Schedule</span>
+      </div>
+      <p class="text-ink font-medium mb-1">{{ site.data.site.contact.booking_label }}</p>
+      <p class="text-sm text-muted">Pick a time on my calendar. Includes a Google Meet link.</p>
+    </a>
+
+    {%- comment -%} Card 2: Email (obfuscated) {%- endcomment -%}
+    <button
+      type="button"
+      class="group text-left rounded-xl border border-hairline bg-surface p-6 hover:border-accent/40 transition-colors"
+      data-email
+      data-local="c2xtdXNheWV2"
+      data-domain="Z21haWwuY29t"
+      data-alias="{{ page.email_alias | default: 'blog' }}"
+      data-subject="Hello from your site ({{ page.variant | default: 'canonical' }})"
+      data-track="cta"
+      data-track-label="email"
+      data-track-location="contact_section">
+      <div class="flex items-center gap-3 mb-3 text-accent">
+        {% include icons/envelope.html size="h-5 w-5" %}
+        <span class="text-sm font-mono uppercase tracking-wider">Email</span>
+      </div>
+      <p class="text-ink font-medium mb-1">Send me a message</p>
+      <p class="text-sm text-muted">I read every email and reply within 24 hours on weekdays.</p>
+    </button>
+
+    {%- comment -%} Card 3: LinkedIn {%- endcomment -%}
+    <a
+      href="{{ site.data.site.contact.linkedin_message_url }}"
+      target="_blank"
+      rel="noopener"
+      class="group rounded-xl border border-hairline bg-surface p-6 no-underline hover:border-accent/40 transition-colors"
+      data-track="cta"
+      data-track-label="linkedin_message"
+      data-track-location="contact_section">
+      <div class="flex items-center gap-3 mb-3 text-accent">
+        {% include icons/linkedin.html size="h-5 w-5" %}
+        <span class="text-sm font-mono uppercase tracking-wider">LinkedIn</span>
+      </div>
+      <p class="text-ink font-medium mb-1">Message on LinkedIn</p>
+      <p class="text-sm text-muted">Connect or send a DM. Mention the role to skip the queue.</p>
+    </a>
+  </div>
+
+  {% include resume_picker.html %}
+</section>

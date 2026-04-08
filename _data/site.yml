@@ -1,0 +1,249 @@
+# yaml-language-server: $schema=
+# ─────────────────────────────────────────────────────────────────────────────
+# Site data — single source of truth for everything that varies.
+# Pages and includes read from this file via {{ site.data.site.* }}.
+#
+# Note on the directive above: it disables YAML schema validation for this
+# file. Without it, IDE language servers misidentify _data/*.yml files as
+# Jekyll _config.yml and flag every property as "not allowed". This file is
+# free-form data, not Jekyll config — Jekyll itself reads it correctly.
+# ─────────────────────────────────────────────────────────────────────────────
+
+author:
+  name: Suleyman Musayev
+  short_title: Senior Backend Engineer
+  long_title: Senior Backend Engineer · Auth, Identity & High-Scale Systems
+  location: Ashgabat, Turkmenistan
+  timezone: UTC+5
+  remote: true
+  visa_required: true
+  open_to: Senior, Staff, Security, IAM, and Product Engineering roles
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Contact
+#
+# Email is intentionally NOT stored in plain text here. The base64-encoded
+# local-part and domain live in js/app.js and are assembled only on click.
+# Each page sets `email_alias` in its front matter so we can route the
+# variants (+blog, +security, +product, +startup, +bigtech).
+# ─────────────────────────────────────────────────────────────────────────────
+contact:
+  booking_url: "https://calendly.com/msuliq"
+  booking_label: "Book a 15-min intro"
+  linkedin_message_url: "https://www.linkedin.com/in/smusayev"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Social profiles — rendered in the footer and contact section.
+# ─────────────────────────────────────────────────────────────────────────────
+social:
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/smusayev
+    icon: linkedin
+  - name: GitHub
+    url: https://github.com/msuliq
+    icon: github
+  - name: RubyGems
+    url: https://rubygems.org/profiles/msuliq
+    icon: rubygems
+  - name: Stack Overflow
+    url: https://stackoverflow.com/users/18576304/msuliq
+    icon: stackoverflow
+  - name: Medium
+    url: https://msuliq.medium.com
+    icon: medium
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Open source projects — rendered as cards. Stars are fetched live via
+# the GitHub public API at page load (cached 1h in localStorage).
+# ─────────────────────────────────────────────────────────────────────────────
+open_source:
+  - name: omniauth_oidc
+    repo: msuliq/omniauth_oidc
+    description: >-
+      OmniAuth strategy for OpenID Connect (OIDC) with first-class support for
+      Microsoft Entra ID and Cloudflare Access.
+    language: Ruby
+  - name: ip_geo_lookup
+    repo: msuliq/ip_geo_lookup
+    description: >-
+      Lightweight IP geolocation lookup for Ruby — useful for fraud detection,
+      access control, and request enrichment.
+    language: Ruby
+  - name: balloon_hashing
+    repo: msuliq/balloon_hashing
+    description: >-
+      Implementation of the Balloon memory-hard password hashing algorithm.
+    language: Ruby
+  - name: yescrypt
+    repo: msuliq/yescrypt
+    description: >-
+      Yescrypt password hashing implementation, the successor to scrypt.
+    language: Ruby
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Writing — Medium articles, blog posts, talks.
+# ─────────────────────────────────────────────────────────────────────────────
+writing:
+  - title: How to Stop SMS Pump Fraud From Draining Your Wallet (and Sanity)
+    url: https://medium.com/@msuliq/how-to-stop-sms-pump-fraud-from-draining-your-wallet-and-sanity-11ea5435608d
+    summary: >-
+      Practical playbook for detecting and shutting down SMS pumping attacks,
+      drawn from production experience defending a global PKI vendor.
+    tag: Security
+  - title: Authenticating with OmniAuth and OpenID Connect (OIDC) in Rails
+    url: https://msuliq.medium.com/authenticating-with-omniauth-and-openid-connect-oidc-in-ruby-on-rails-applications-e136ec5b48c0
+    summary: >-
+      Step-by-step guide to wiring OIDC authentication into a Ruby on Rails
+      application using the omniauth_oidc gem.
+    tag: Engineering
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tech stack — surfaced as a grid for recruiter SEO and quick scanning.
+# ─────────────────────────────────────────────────────────────────────────────
+tech_stack:
+  - category: Languages
+    items: [Ruby, JavaScript, Python, C, C++, SQL]
+  - category: Frameworks
+    items: ["Ruby on Rails", Sinatra, Hanami, Stimulus, Hotwire, Turbo]
+  - category: Data
+    items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
+  - category: Auth & Identity
+    items: [OAuth2, OpenID Connect, SAML, JWT, Session-based, mTLS, WebAuthn]
+  - category: Security
+    items: [PKI, Certificate Lifecycle, Device Fingerprinting, Behavioral Analytics, Fraud Detection, MPIC]
+  - category: Infrastructure
+    items: [Docker, Linux, Nginx, AWS, GitHub Actions, Datadog]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Work history — rendered as a vertical timeline of cards.
+# Each role lists 3-5 highlight bullets with concrete impact.
+# ─────────────────────────────────────────────────────────────────────────────
+work:
+  - company: SSL.com
+    role: Software Engineer
+    period: Aug 2023 — Present
+    location: Remote · top-10 global PKI vendor
+    summary: >-
+      Sole architect and lead engineer of a high-scale authentication and identity platform
+      at a top-10 global PKI vendor. Designed and scaled the backend infrastructure
+      enabling 10× growth in TLS, code signing, and identity certificate issuance.
+    highlights:
+      - Sole architect of the company-wide authentication and identity platform supporting tens of thousands of daily users.
+      - Designed OAuth2, OIDC, SAML, and session-based flows including secure cross-domain authentication and external IdP integrations.
+      - Built a fully automated certificate issuance pipeline and complex API endpoints for certificate lifecycle management.
+      - Designed fraud detection combining third-party services with custom analytics on behavioral patterns, IP intelligence, and device fingerprinting; cut SMS pumping fraud loss to zero.
+      - Implemented protections against account takeover, replay attacks, session hijacking, and internal threats (credential leaks, privileged misuse).
+      - Defended against advanced and state-level threat actors; led the redesign of the auth engine for high-volume load and long-term scalability.
+    stack: [Ruby on Rails, PostgreSQL, Redis, OAuth2, OIDC, SAML, PKI, Sidekiq, AWS]
+
+  - company: Midstay
+    role: Software Engineer
+    period: Aug 2022 — Jan 2024
+    location: Remote · early engineer, 5-person team, ~1k DAU
+    summary: >-
+      Early engineer on a 5-person team building a consumer product with ~1k DAU.
+      Owned end-to-end features across the Rails stack and led incident response.
+      Final 5 months were a contract wind-down with gradual transition of responsibilities
+      to the rest of the team while ramping up at SSL.com.
+    highlights:
+      - Reduced backend latency by up to 5× through query optimization, indexing, and caching.
+      - Improved user retention by 15% through targeted performance and product improvements.
+      - Shipped 4 major product features in 12 months, supporting multiple product pivots.
+      - Identified and mitigated critical security vulnerabilities; led incident response against advanced attackers.
+    stack: [Ruby on Rails, PostgreSQL, Redis, JavaScript, Stimulus, AWS]
+
+  - company: Private Trading Firm
+    role: Quantitative Trading Operations
+    period: Mar 2020 — May 2021
+    location: Built and managed automated hedging across brokers, markets, and instruments
+    summary: >-
+      Built and managed automated hedging strategies across multiple brokers, markets, and
+      financial instruments. Background in quantitative finance taught me to think in risk,
+      edge cases, and systemic failure modes — a mindset I now apply directly to security engineering.
+    highlights:
+      - Reduced hedging costs by up to 35% through strategy optimization and execution improvements.
+      - Managed a large leveraged portfolio with rigorous risk control and capital efficiency.
+      - Self-taught Ruby in parallel during this role, transitioning to engineering by mid-2022.
+    stack: [Python, C++, SQL]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Hero metric badges per variant. Each variant page picks the right set
+# via {{ site.data.site.metrics[page.variant] }}.
+# ─────────────────────────────────────────────────────────────────────────────
+metrics:
+  canonical:
+    - value: "10×"
+      label: "auth engine scale"
+    - value: "5×"
+      label: "latency reduction"
+    - value: "$0"
+      label: "fraud loss"
+    - value: "2×"
+      label: "Employee of the Month"
+  security:
+    - value: "$0"
+      label: "SMS pump fraud loss"
+    - value: "10k+"
+      label: "daily authenticated users"
+    - value: "Top-10"
+      label: "global PKI vendor"
+    - value: "CVE-aware"
+      label: "defense posture"
+  product:
+    - value: "5×"
+      label: "latency reduction"
+    - value: "+15%"
+      label: "user retention"
+    - value: "4"
+      label: "features in 12 months"
+    - value: "1k DAU"
+      label: "early-stage scale"
+  startup:
+    - value: "0→1"
+      label: "auth system architect"
+    - value: "6 mo"
+      label: "Ruby zero to senior"
+    - value: "Multi-hat"
+      label: "backend · security · ops"
+    - value: "Cross-domain"
+      label: "finance + engineering"
+  bigtech:
+    - value: "10×"
+      label: "system scale growth"
+    - value: "10k+"
+      label: "auth engine DAU"
+    - value: "Distributed"
+      label: "architecture lead"
+    - value: "5×"
+      label: "perf improvement"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Resume PDFs — picker shows all five.
+# ─────────────────────────────────────────────────────────────────────────────
+resumes:
+  - variant: canonical
+    label: "Canonical"
+    file: /resumes/resume_suleyman_musayev.pdf
+  - variant: security
+    label: "Security"
+    file: /resumes/resume_suleyman_musayev_security.pdf
+  - variant: product
+    label: "Product"
+    file: /resumes/resume_suleyman_musayev_product.pdf
+  - variant: startup
+    label: "Startup"
+    file: /resumes/resume_suleyman_musayev_startup.pdf
+  - variant: bigtech
+    label: "Big Tech"
+    file: /resumes/resume_suleyman_musayev_bigtech.pdf
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Analytics
+#
+# Note: Microsoft Clarity is wired through GTM (project ID w8bk11a100),
+# so we only need the GTM snippet — Clarity loads via that tag.
+# ─────────────────────────────────────────────────────────────────────────────
+analytics:
+  ga4_id: G-RE9SDT8WBG
+  gtm_id: GTM-KX3F3C3
+  clarity_id: w8bk11a100  # for reference only — fires through GTM

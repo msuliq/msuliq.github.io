@@ -1,0 +1,39 @@
+{%- comment -%}
+  Analytics tags.
+
+  - Google Tag Manager loads everything else (GA4, Microsoft Clarity).
+  - GA4 is also loaded directly via gtag for redundancy and to ensure
+    custom events from js/app.js can fire even if GTM is blocked.
+  - Microsoft Clarity (project w8bk11a100) is configured as a tag inside
+    GTM, so we don't need a separate Clarity script here.
+{%- endcomment -%}
+
+{%- assign gtm_id = site.data.site.analytics.gtm_id -%}
+{%- assign ga4_id = site.data.site.analytics.ga4_id -%}
+
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', '{{ gtm_id }}');
+</script>
+
+<!-- Google Analytics 4 (gtag) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', '{{ ga4_id }}', {
+    page_path: window.location.pathname,
+    {% if page.variant %}custom_map: { dimension1: 'site_variant' },
+    site_variant: '{{ page.variant }}'{% endif %}
+  });
+</script>

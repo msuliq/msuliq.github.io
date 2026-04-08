@@ -1,0 +1,59 @@
+{%- comment -%}
+  Work / experience timeline. Each role is a card with header (company,
+  role, period, location), summary paragraph, highlight bullets, and a
+  stack pill row.
+{%- endcomment -%}
+
+<section id="work" class="container-narrow section">
+  <div class="max-w-prose mb-12">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Experience</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Where I've built and shipped.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      A decade across security engineering, product engineering, and quantitative finance.
+      Each role taught me a different way to think about reliability under pressure.
+    </p>
+  </div>
+
+  <ol class="space-y-6">
+    {%- for role in site.data.site.work -%}
+    <li>
+      <article class="rounded-xl border border-hairline bg-surface p-6 sm:p-8">
+        <header class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+          <div>
+            <h3 class="text-lg sm:text-xl font-semibold text-ink">
+              {{ role.role }} · <span class="text-accent">{{ role.company }}</span>
+            </h3>
+            <p class="text-sm text-muted mt-1">{{ role.location }}</p>
+          </div>
+          <p class="text-sm font-mono text-muted whitespace-nowrap">{{ role.period }}</p>
+        </header>
+
+        <p class="text-muted leading-relaxed mb-5 max-w-prose">
+          {{ role.summary }}
+        </p>
+
+        <ul class="space-y-2 mb-5">
+          {%- for h in role.highlights -%}
+          <li class="flex gap-3 text-sm sm:text-base text-ink leading-relaxed">
+            <span class="text-accent mt-1.5 flex-shrink-0" aria-hidden="true">▸</span>
+            <span>{{ h }}</span>
+          </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if role.stack -%}
+        <ul class="flex flex-wrap gap-1.5">
+          {%- for tech in role.stack -%}
+          <li class="inline-flex items-center rounded-md bg-elevated text-muted px-2 py-1 text-xs font-mono">
+            {{ tech }}
+          </li>
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </article>
+    </li>
+    {%- endfor -%}
+  </ol>
+</section>

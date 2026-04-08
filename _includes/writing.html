@@ -1,0 +1,49 @@
+{%- comment -%}
+  Writing section — Medium articles, posts, talks. Card list.
+{%- endcomment -%}
+
+<section id="writing" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Writing</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Notes from the field.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      Practical write-ups on the security and authentication problems I've solved in production.
+    </p>
+  </div>
+
+  <ul class="space-y-3">
+    {%- for post in site.data.site.writing -%}
+    <li>
+      <a
+        href="{{ post.url }}"
+        target="_blank"
+        rel="noopener"
+        class="group flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 rounded-xl border border-hairline bg-surface p-6 no-underline hover:border-accent/40 transition-colors"
+        data-track="outbound"
+        data-track-label="writing_{{ post.title | slugify }}"
+        data-track-location="writing">
+
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="inline-flex items-center rounded bg-elevated px-2 py-0.5 text-xs font-mono text-muted">
+              {{ post.tag }}
+            </span>
+          </div>
+          <h3 class="text-base sm:text-lg font-semibold text-ink group-hover:text-accent transition-colors mb-1">
+            {{ post.title }}
+          </h3>
+          <p class="text-sm text-muted leading-relaxed">
+            {{ post.summary }}
+          </p>
+        </div>
+
+        <span class="text-muted group-hover:text-accent transition-colors flex-shrink-0 hidden sm:block mt-1">
+          {% include icons/external-link.html size="h-4 w-4" %}
+        </span>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

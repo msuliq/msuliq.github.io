@@ -1,0 +1,42 @@
+title: Suleyman Musayev
+description: >-
+  Senior Backend Engineer specializing in authentication systems, PKI,
+  application security, and high-scale Ruby on Rails infrastructure.
+url: https://msuliq.github.io
+baseurl: ""
+
+author:
+  name: Suleyman Musayev
+  twitter: ""
+
+# Default layout for all pages
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+# Files Jekyll should not publish
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - css/input.css
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - vendor
+  - "*.log"
+  - _og
+  - _resumes
+
+# GitHub Pages-supported plugins only
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+markdown: kramdown
+incremental: false

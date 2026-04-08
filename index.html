@@ -1,169 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Default meta tags for mobile responsiveness -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Suleyman Musayev - Senior Software Engineer specializing in PKI, authentication systems, and application security. Building secure, scalable applications with Ruby on Rails at SSL.com.">
-    <title>Suleyman Musayev | Senior Software Engineer</title>
-    <link rel="icon" href="./images/m.png" sizes="32x32" type="image/png">
-    <link rel="apple-touch-icon" href="./images/m192.png">
-    <link rel="manifest" href="./manifest.json">
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <script src="https://kit.fontawesome.com/1120901f57.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KX3F3C3');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE9SDT8WBG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RE9SDT8WBG');
-    </script>
-    <script>
-      // Theme toggle functionality
-      function initTheme() {
-        const theme = localStorage.getItem('theme') || 'light';
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        }
-      }
-      
-      function toggleTheme() {
-        const html = document.documentElement;
-        const isDark = html.classList.contains('dark');
-        
-        if (isDark) {
-          html.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        } else {
-          html.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        }
-      }
-      
-      // Initialize theme before page renders
-      initTheme();
-    </script>
-    <style>
-      .dark {
-        color-scheme: dark;
-      }
-    </style>
-</head>
-<body class="bg-cover bg-stretch bg-no-repeat transition-colors duration-300" style="background-image: url('images/background.jpg');">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX3F3C3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div class="flex h-fit items-left justify-left p-2 md:pt-32">
-        <div class="flex flex-col w-fit bg-white dark:bg-gray-800 bg-opacity-50 dark:bg-opacity-90 text-gray-900 dark:text-gray-100 text-justify gap-2 md:gap-3 rounded-xl p-2 md:p-6 transition-colors duration-300 relative">
+---
+layout: default
+variant: canonical
+email_alias: blog
+title: Suleyman Musayev
+description: >-
+  Senior Backend Engineer specializing in authentication systems, PKI,
+  application security, and high-scale Ruby on Rails infrastructure.
+  Core architect of the auth system at SSL.com, a top-10 global PKI vendor.
+headline: Senior Backend Engineer · Auth, Identity & High-Scale Systems
+tagline: >-
+  Auth & identity engineer. Core architect at a top-10 PKI vendor.
+  Open to senior and staff roles.
+permalink: /
+---
 
-            <h1 class="font-semibold md:font-bold text-base md:text-2xl">Suleyman Musayev</h1>
-            <p class="text-gray-700 dark:text-gray-300 text-xs md:text-sm italic">Senior Software Engineer | PKI & Authentication Systems</p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
-              I'm a senior software engineer specializing in authentication systems, PKI, and application security. 
-              Currently, I architect and maintain security-critical systems at <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://www.ssl.com/">SSL.com</a>, 
-              a recognized global PKI vendor, where I build solutions that protect millions of users.
-            </p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
-              I design systems that need to work flawlessly under pressure. My authentication engine serves tens of thousands daily users, 
-              and I've reduced SMS pump fraud attempts to zero through custom security implementations including dynamic risk scoring, 
-              device fingerprinting, and behavioral pattern analysis. I've also improved system fault tolerance and 
-              prevented numerous security incidents through proactive architecture and code review.
-            </p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
-              My expertise centers on the intersection of cryptography and practical security. I've implemented OAuth2 and SAML 
-              authentication flows with certificate-based encryption, built MPIC compliance systems per Baseline Requirements, 
-              and developed cross-domain authentication solutions with advanced session security features. I work extensively 
-              with certificate lifecycle management at scale - SSL.com issues thousands of certificates daily across TLS, 
-              code signing, and other use cases.
-            </p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
-              While my primary work is in Ruby on Rails, I'm also proficient in JS, Python, C, and C++. I thrive 
-              on backend challenges that require unconventional thinking - the kind of problems where security, performance, 
-              and user experience must all align perfectly.
-            </p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
-              I contribute to the developer community through open source work, including 
-              <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://github.com/msuliq/omniauth_oidc">omniauth_oidc</a>, a library for 
-              OpenID Connect authentication. I've also written about combating 
-              <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://medium.com/@msuliq/how-to-stop-sms-pump-fraud-from-draining-your-wallet-and-sanity-11ea5435608d">SMS pump fraud</a> 
-              and implementing 
-              <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://msuliq.medium.com/authenticating-with-omniauth-and-openid-connect-oidc-in-ruby-on-rails-applications-e136ec5b48c0">OIDC authentication</a> 
-              on <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://msuliq.medium.com/">Medium</a>, sharing practical solutions to 
-              real-world security challenges.
-            </p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg">
-              Previously, I was part of the early core team at <a class="underline font-medium hover:text-blue-600 dark:hover:text-blue-400" href="https://app.midstay.com/">Midstay</a>, 
-              where I built sophisticated features across the full stack. Before transitioning to software engineering, I worked 
-              in big oil and commodity trading - a background that taught me to think systematically about complex problems.
-            </p>
-
-            <p class="text-gray-900 dark:text-gray-100 text-sm md:text-base xl:text-lg font-medium">
-              I'm currently exploring senior engineering opportunities where I can leverage my specialized expertise in PKI, 
-              authentication systems, and security architecture. If you're building systems where security is paramount and 
-              complexity is the norm, let's connect.
-            </p>
-
-            <ul class="flex flex-row justify-between w-full mt-2 md:mt-3 text-sm md:text-base xl:text-lg whitespace-nowrap">
-                <li>
-                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://www.linkedin.com/in/smusayev" title="Suleyman Musayev on LinkedIn">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa-solid fa-square fa-stack-2x"></i>
-                      <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
-                    </span>
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://github.com/msuliq" title="Suleyman Musayev on GitHub">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa-solid fa-square fa-stack-2x"></i>
-                      <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
-                    </span>
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://rubygems.org/profiles/msuliq" title="Suleyman Musayev on RubyGems">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa-solid fa-square fa-stack-2x"></i>
-                      <i class="fa-solid fa-gem fa-stack-1x fa-inverse"></i>
-                    </span>
-                    RubyGems
-                  </a>
-                </li>
-                <li>
-                  <a class="flex flex-col md:flex-row items-center hover:text-blue-700 transition-colors" href="https://stackoverflow.com/users/18576304/msuliq" title="Suleyman Musayev on Stack Overflow">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa-solid fa-square fa-stack-2x"></i>
-                      <i class="fa-brands fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                    </span>
-                    Stack Overflow
-                  </a>
-                </li>
-            </ul>
-
-            <div class="mt-2 pt-2 border-t border-gray-400 dark:border-gray-600 text-xs md:text-sm text-gray-700 dark:text-gray-300">
-              <p><strong>Location:</strong> Ashgabat, Turkmenistan (UTC+5) | <strong>Work:</strong> Remote, available globally</p>
-              <p><strong>Languages:</strong> English, Russian, Turkmen (fluent) | Turkish (conversational)</p>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+{% include hero.html %}
+{% include impact_metrics.html %}
+{% include work.html %}
+{% include tech_stack.html %}
+{% include open_source.html %}
+{% include writing.html %}
+{% include contact.html %}

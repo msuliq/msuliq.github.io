@@ -1,0 +1,64 @@
+{%- comment -%}
+  Open source projects. Card grid, 2-column at md+.
+  Stars are populated by js/app.js via the GitHub public API,
+  cached in localStorage for 1h. The .stars span starts hidden
+  and is revealed only after a successful fetch.
+{%- endcomment -%}
+
+<section id="open-source" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Open source</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Code I've put in the world.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      Libraries I built or maintain. Most live at the intersection of authentication,
+      cryptography, and security tooling for Ruby.
+    </p>
+  </div>
+
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {%- for project in site.data.site.open_source -%}
+    <li>
+      <a
+        href="https://github.com/{{ project.repo }}"
+        target="_blank"
+        rel="noopener"
+        class="group block h-full rounded-xl border border-hairline bg-surface p-6 no-underline hover:border-accent/40 transition-colors"
+        data-track="outbound"
+        data-track-label="github_{{ project.name }}"
+        data-track-location="open_source">
+
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <h3 class="font-mono text-base font-semibold text-ink group-hover:text-accent transition-colors">
+            {{ project.name }}
+          </h3>
+          <div class="flex items-center gap-3 text-xs text-muted whitespace-nowrap">
+            <span
+              class="hidden items-center gap-1 stars"
+              data-stars-for="{{ project.repo }}"
+              aria-label="GitHub stars">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <span class="stars-count">—</span>
+            </span>
+            <span class="inline-flex items-center gap-1 rounded bg-elevated px-2 py-0.5">
+              {{ project.language }}
+            </span>
+          </div>
+        </div>
+
+        <p class="text-sm text-muted leading-relaxed mb-4">
+          {{ project.description }}
+        </p>
+
+        <p class="inline-flex items-center gap-1.5 text-xs font-mono text-accent">
+          View on GitHub
+          {% include icons/external-link.html size="h-3 w-3" %}
+        </p>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

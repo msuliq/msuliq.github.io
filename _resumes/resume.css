@@ -1,0 +1,216 @@
+/*
+ * Shared resume stylesheet — print to US Letter (8.5" × 11").
+ *
+ * Design priorities:
+ *   1. ATS parseable: single column, real text, standard section names
+ *      ("Summary", "Experience", "Skills", "Projects", "Education").
+ *   2. Recruiter scannable: clear hierarchy, generous whitespace, no clutter.
+ *   3. Print-clean: black on white, no background colors, US Letter format.
+ *   4. Subtle accent only — a single color stripe under the name and the
+ *      role titles. Nothing decorative.
+ */
+
+@page {
+  size: letter;
+  margin: 0.5in 0.65in;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  font-size: 10pt;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+a {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────── */
+
+.header {
+  border-bottom: 2px solid #1e40af;
+  padding-bottom: 10pt;
+  margin-bottom: 14pt;
+}
+
+.name {
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: -0.5pt;
+  color: #111;
+  line-height: 1.1;
+}
+
+.title {
+  font-size: 12pt;
+  font-weight: 500;
+  color: #1e40af;
+  margin-top: 3pt;
+  letter-spacing: 0.1pt;
+}
+
+.contact {
+  font-size: 9pt;
+  color: #444;
+  margin-top: 7pt;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4pt 12pt;
+}
+
+.contact span::before {
+  content: "·";
+  margin-right: 12pt;
+  color: #999;
+}
+
+.contact span:first-child::before { content: none; margin: 0; }
+
+/* ─── Sections ───────────────────────────────────────────────────────── */
+
+section {
+  margin-top: 12pt;
+}
+
+h2 {
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2pt;
+  color: #1e40af;
+  border-bottom: 0.75pt solid #ddd;
+  padding-bottom: 3pt;
+  margin-bottom: 8pt;
+}
+
+/* ─── Summary ────────────────────────────────────────────────────────── */
+
+.summary p {
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #222;
+}
+
+/* ─── Experience ─────────────────────────────────────────────────────── */
+
+.role {
+  margin-bottom: 11pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.role:last-child { margin-bottom: 0; }
+
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12pt;
+  margin-bottom: 1pt;
+}
+
+.role-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #111;
+}
+
+.role-title .company {
+  color: #1e40af;
+}
+
+.role-meta {
+  font-size: 9pt;
+  color: #555;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.role-location {
+  font-size: 9pt;
+  color: #777;
+  margin-bottom: 4pt;
+}
+
+.role ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 4pt;
+}
+
+.role li {
+  padding-left: 12pt;
+  position: relative;
+  margin-bottom: 2.5pt;
+  font-size: 9.75pt;
+  line-height: 1.45;
+}
+
+.role li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #1e40af;
+  font-size: 8pt;
+  top: 0.5pt;
+}
+
+/* ─── Skills (two-column key/value grid) ─────────────────────────────── */
+
+.skills dl {
+  display: grid;
+  grid-template-columns: 110pt 1fr;
+  gap: 4pt 14pt;
+}
+
+.skills dt {
+  font-size: 9pt;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.4pt;
+}
+
+.skills dd {
+  font-size: 9.75pt;
+  color: #222;
+}
+
+/* ─── Projects ───────────────────────────────────────────────────────── */
+
+.project {
+  margin-bottom: 6pt;
+  break-inside: avoid;
+}
+
+.project:last-child { margin-bottom: 0; }
+
+.project-name {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #111;
+}
+
+.project-name a { color: #111; }
+
+.project-desc {
+  font-size: 9.5pt;
+  color: #333;
+  line-height: 1.4;
+  margin-top: 1pt;
+}
+
+/* ─── Languages / Education / one-line meta ──────────────────────────── */
+
+.meta-line {
+  font-size: 9.75pt;
+  color: #222;
+}
