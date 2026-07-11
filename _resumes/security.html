@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Suleyman Musayev — Senior Security Engineer</title>
+  <title>Suleyman Musayev — Fraud &amp; Abuse Engineer</title>
   <meta name="author" content="Suleyman Musayev">
-  <meta name="description" content="Senior Security Engineer specializing in IAM, PKI, OAuth/OIDC/SAML, and fraud detection.">
+  <meta name="description" content="Fraud & Abuse Engineer specializing in fraud detection, account takeover defense, session security, and PKI.">
   <link rel="stylesheet" href="resume.css">
 </head>
 <body>
 
   <header class="header">
     <h1 class="name">Suleyman Musayev</h1>
-    <p class="title">Senior Security Engineer · IAM, PKI &amp; Anti-Fraud</p>
+    <p class="title">Fraud &amp; Abuse Engineer · Detection, Account Security &amp; PKI</p>
     <p class="contact">
       <span>slmusayev@gmail.com</span>
       <span>linkedin.com/in/smusayev</span>
@@ -24,12 +24,15 @@
   <section class="summary">
     <h2>Summary</h2>
     <p>
-      Security engineer specializing in identity, access management, and fraud defense for
-      high-risk environments. Sole architect of the authentication platform at SSL.com (top-10
-      global PKI vendor), where I designed protections that cut SMS pumping fraud loss to zero
-      and defended against state-level and advanced threat actors. Production experience with
-      OAuth 2.0, OIDC, SAML, certificate lifecycle management, and CVE-aware defense in depth.
-      Open to senior and staff security engineering, IAM, and application security roles.
+      Fraud and abuse engineer specializing in detection and account security for high-risk
+      environments. Sole architect of the authentication and anti-fraud platform at SSL.com
+      (top-10 global certificate authority): bot defense at 1,000+ fake signups/day,
+      insider-threat and identity-theft detection, and long-horizon surveillance of attackers
+      probing authorization and account flows. Stopped a $2,500/day SMS pumping attack in
+      4 days; defeated a persistent session hijacking attacker who had survived password
+      resets, 2FA resets, and endpoint forensics. I pair LLM-augmented pattern matching with
+      human-led forensics to take an attack from detection to mitigation in minutes.
+      Open to senior and staff fraud, abuse, trust &amp; safety, and security engineering roles.
     </p>
   </section>
 
@@ -43,11 +46,13 @@
       </div>
       <p class="role-location">Remote · top-10 global PKI vendor · sole architect of auth &amp; identity platform</p>
       <ul>
+        <li><strong>Detected and shut down months-long attacker reconnaissance</strong> across authorization policies, invitation flows, password enumeration, and role-hijacking paths: identified the weak spots and closed every probed vector in code before exploitation.</li>
+        <li>Built <strong>bot-account defense handling 1,000+ fake signups per day</strong>, including countermeasures against human CAPTCHA-solving farms; deployed reCAPTCHA v2/v3 and Cloudflare Turnstile.</li>
+        <li>Built <strong>insider-threat detection</strong> covering staff and admin abuse, admins colluding with external attackers, and attackers impersonating staff or admins.</li>
+        <li>Built <strong>identity-theft detection</strong> that cross-matches IP geolocation, billing, shipping, personal details, and phone numbers across multiple applications.</li>
+        <li><strong>Stopped an SMS pumping attack costing ~$2,500/day</strong>: designed, built, and deployed the countermeasure in 4 days using dynamic risk scoring, anomaly detection, and adaptive throttling. Fraud losses since: <strong>$0</strong>.</li>
+        <li><strong>Defeated a persistent session hijacking attacker</strong> who survived password resets, 2FA resets, and full endpoint forensics: built session binding, replay attack detection, and automatic termination of suspect sessions at the application layer.</li>
         <li><strong>Sole architect</strong> of the authentication and identity platform supporting tens of thousands of daily users; enabled 10× growth in TLS, code signing, and identity certificate issuance.</li>
-        <li>Designed fraud detection and abuse prevention combining third-party services with custom analytics on <strong>behavioral patterns, IP intelligence, device fingerprinting, user-agent analysis, and CVE-aware protections</strong>.</li>
-        <li><strong>Cut SMS pumping fraud loss to zero</strong> through dynamic risk scoring, anomaly detection, and adaptive throttling.</li>
-        <li>Implemented protections against <strong>account takeover, replay attacks, session hijacking, and SMS abuse</strong>; defended against advanced and state-level threat actors.</li>
-        <li>Built safeguards against internal threats: credential leaks, privileged misuse, and insider abuse detection across critical workflows.</li>
         <li>Designed and implemented <strong>OAuth 2.0, OpenID Connect (OIDC), SAML, and session-based</strong> auth, including secure cross-domain flows and external identity provider integrations.</li>
         <li>Built MPIC (Multi-Perspective Issuance Corroboration) compliance per CA/Browser Forum Baseline Requirements; led architecture for distributed auth services, API servers, and audit-logging pipelines.</li>
       </ul>
@@ -60,8 +65,8 @@
       </div>
       <p class="role-location">Remote · early engineer, 5-person team, ~1k DAU consumer product</p>
       <ul>
-        <li>Identified and mitigated <strong>critical security vulnerabilities</strong> across the application stack; led incident response against exploitation attempts by advanced attackers.</li>
-        <li>Implemented safeguards to prevent recurrence and improve overall system resilience post-incident.</li>
+        <li>Closed <strong>authorization flaws surfaced in a live penetration test</strong>, including a broken access control that let the tester join private two-person chats as a third participant.</li>
+        <li>Led incident response against exploitation attempts by advanced attackers; implemented safeguards to prevent recurrence and improve system resilience.</li>
         <li>Reduced backend latency by up to <strong>5×</strong> and improved user retention by <strong>15%</strong> through performance and product improvements.</li>
         <li>Shipped 4 major product features in 12 months, supporting multiple product pivots.</li>
         <li>Final 5 months were a contract wind-down with gradual transition of responsibilities to the rest of the team while ramping up at SSL.com.</li>
@@ -84,11 +89,14 @@
   <section class="skills">
     <h2>Skills</h2>
     <dl>
+      <dt>Fraud &amp; Abuse</dt>
+      <dd>Fraud Detection, Bot Mitigation, Insider Threat Detection, Identity Theft Detection, Account Takeover Defense, Session Security, Replay Attack Mitigation, Device Fingerprinting, Behavioral Analytics, IP Intelligence, Velocity Controls, reCAPTCHA v2/v3, Cloudflare Turnstile</dd>
+
       <dt>Auth &amp; Identity</dt>
       <dd>OAuth 2.0, OpenID Connect (OIDC), SAML, JWT, Session-based, SSO, mTLS, Cross-domain Auth, External IdP integration</dd>
 
-      <dt>Security</dt>
-      <dd>PKI, Certificate Lifecycle Management, MPIC, Fraud Detection, Account Takeover Defense, Replay Attack Mitigation, Device Fingerprinting, Behavioral Analytics, Insider Threat Detection, CVE-aware Defense</dd>
+      <dt>Security &amp; PKI</dt>
+      <dd>PKI, Certificate Lifecycle Management, MPIC, CVE-aware Defense</dd>
 
       <dt>Cryptography</dt>
       <dd>Memory-hard hashing (Balloon, Yescrypt), Certificate-based Encryption, X.509, TLS</dd>
@@ -135,12 +143,9 @@
   </section>
 
   <section>
-    <h2>Languages &amp; Certifications</h2>
+    <h2>Languages</h2>
     <p class="meta-line">
       <strong>Languages:</strong> English (Professional) · Russian (Native) · Turkmen (Native) · Turkish (Conversational)
-    </p>
-    <p class="meta-line" style="margin-top:3pt">
-      <strong>Certifications:</strong> Bloomberg Market Concepts (BMC)
     </p>
   </section>
 

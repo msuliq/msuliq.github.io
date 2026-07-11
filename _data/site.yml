@@ -11,13 +11,13 @@
 
 author:
   name: Suleyman Musayev
-  short_title: Senior Backend Engineer
-  long_title: Senior Backend Engineer · Auth, Identity & High-Scale Systems
+  short_title: Fraud & Abuse Engineer
+  long_title: Fraud & Abuse Engineer · Detection, Account Security, Session Defense
   location: Ashgabat, Turkmenistan
   timezone: UTC+5
   remote: true
   visa_required: true
-  open_to: Senior, Staff, Security, IAM, and Product Engineering roles
+  open_to: Senior/Staff Security, Fraud & Abuse, and Solutions Engineering roles
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Contact
@@ -101,16 +101,18 @@ writing:
 # Tech stack — surfaced as a grid for recruiter SEO and quick scanning.
 # ─────────────────────────────────────────────────────────────────────────────
 tech_stack:
+  - category: Fraud & Abuse
+    items: [Fraud Detection, Bot Mitigation, Insider Threat Detection, Identity Theft Detection, Device Fingerprinting, Behavioral Analytics, Account Takeover Prevention, Session Security, Replay Mitigation, IP Intelligence, Velocity Controls, reCAPTCHA & Turnstile]
+  - category: Auth & Identity
+    items: [OAuth2, OpenID Connect, SAML, JWT, Session-based, mTLS, WebAuthn]
+  - category: Security & PKI
+    items: [PKI, Certificate Lifecycle, MPIC, Memory-hard Hashing, X.509, TLS]
   - category: Languages
     items: [Ruby, JavaScript, Python, C, C++, SQL]
   - category: Frameworks
     items: ["Ruby on Rails", Sinatra, Hanami, Stimulus, Hotwire, Turbo]
   - category: Data
     items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
-  - category: Auth & Identity
-    items: [OAuth2, OpenID Connect, SAML, JWT, Session-based, mTLS, WebAuthn]
-  - category: Security
-    items: [PKI, Certificate Lifecycle, Device Fingerprinting, Behavioral Analytics, Fraud Detection, MPIC]
   - category: Infrastructure
     items: [Docker, Linux, Nginx, AWS, GitHub Actions, Datadog]
 
@@ -122,34 +124,37 @@ work:
   - company: SSL.com
     role: Software Engineer
     period: Aug 2023 — Present
-    location: Remote · top-10 global PKI vendor
+    location: Remote · top-10 global certificate authority
     summary: >-
-      Sole architect and lead engineer of a high-scale authentication and identity platform
-      at a top-10 global PKI vendor. Designed and scaled the backend infrastructure
-      enabling 10× growth in TLS, code signing, and identity certificate issuance.
+      Sole architect and lead engineer of the authentication, identity, and anti-fraud
+      platform at a top-10 global certificate authority. Attackers probe the platform
+      daily; my job is to spot them early and make every vector unprofitable. I pair
+      LLM-augmented pattern matching with human-led forensics to take an attack from detection
+      to mitigation in minutes, not days.
     highlights:
-      - Sole architect of the company-wide authentication and identity platform supporting tens of thousands of daily users.
-      - Designed OAuth2, OIDC, SAML, and session-based flows including secure cross-domain authentication and external IdP integrations.
-      - Built a fully automated certificate issuance pipeline and complex API endpoints for certificate lifecycle management.
-      - Designed fraud detection combining third-party services with custom analytics on behavioral patterns, IP intelligence, and device fingerprinting; cut SMS pumping fraud loss to zero.
-      - Implemented protections against account takeover, replay attacks, session hijacking, and internal threats (credential leaks, privileged misuse).
-      - Defended against advanced and state-level threat actors; led the redesign of the auth engine for high-volume load and long-term scalability.
+      - "Detected and shut down months-long attacker reconnaissance across authorization policies, invitation flows, password enumeration, and role-hijacking paths: identified the weak spots and closed every probed vector in code before exploitation."
+      - Built bot-account defense handling 1,000+ fake signups per day, including countermeasures against human CAPTCHA-solving farms; deployed reCAPTCHA v2/v3 and Cloudflare Turnstile.
+      - Built insider-threat detection covering staff and admin abuse, admins colluding with external attackers, and attackers impersonating staff or admins.
+      - Built identity-theft detection that cross-matches IP geolocation, billing, shipping, personal details, and phone numbers across multiple applications.
+      - "Stopped an SMS pumping attack costing ~$2,500/day: designed, built, and deployed the countermeasure in 4 days. Fraud losses since: $0."
+      - "Defeated a persistent session hijacking attacker who survived password resets, 2FA resets, and full endpoint forensics: built session binding, replay attack detection, and automatic termination of suspect sessions at the application layer."
+      - Sole architect of the company-wide authentication platform (OAuth2, OIDC, SAML, session-based flows, external IdP integrations) supporting tens of thousands of daily users; enabled 10× growth in TLS, code signing, and identity certificate issuance.
     stack: [Ruby on Rails, PostgreSQL, Redis, OAuth2, OIDC, SAML, PKI, Sidekiq, AWS]
 
   - company: Midstay
     role: Software Engineer
-    period: Aug 2022 — Jan 2024
+    period: Nov 2022 — Jan 2024
     location: Remote · early engineer, 5-person team, ~1k DAU
     summary: >-
-      Early engineer on a 5-person team building a consumer product with ~1k DAU.
-      Owned end-to-end features across the Rails stack and led incident response.
-      Final 5 months were a contract wind-down with gradual transition of responsibilities
-      to the rest of the team while ramping up at SSL.com.
+      Early engineer on a 5-person team building a consumer product with ~1k DAU
+      (joined as an intern in Aug 2022). Owned end-to-end features across the Rails
+      stack and led incident response. Final 5 months were a contract wind-down with
+      gradual transition of responsibilities while ramping up at SSL.com.
     highlights:
+      - Closed authorization flaws surfaced in a live penetration test, including a broken access control that let the tester join private two-person chats as a third participant; led incident response against advanced attackers.
       - Reduced backend latency by up to 5× through query optimization, indexing, and caching.
       - Improved user retention by 15% through targeted performance and product improvements.
       - Shipped 4 major product features in 12 months, supporting multiple product pivots.
-      - Identified and mitigated critical security vulnerabilities; led incident response against advanced attackers.
     stack: [Ruby on Rails, PostgreSQL, Redis, JavaScript, Stimulus, AWS]
 
   - company: Private Trading Firm
@@ -158,8 +163,9 @@ work:
     location: Built and managed automated hedging across brokers, markets, and instruments
     summary: >-
       Built and managed automated hedging strategies across multiple brokers, markets, and
-      financial instruments. Background in quantitative finance taught me to think in risk,
-      edge cases, and systemic failure modes — a mindset I now apply directly to security engineering.
+      financial instruments. Risk modeling under adversarial market conditions is the same
+      discipline as fraud detection: spotting anomalies early, capping losses, and acting
+      fast when the numbers move against you.
     highlights:
       - Reduced hedging costs by up to 35% through strategy optimization and execution improvements.
       - Managed a large leveraged portfolio with rigorous risk control and capital efficiency.
@@ -172,23 +178,23 @@ work:
 # ─────────────────────────────────────────────────────────────────────────────
 metrics:
   canonical:
+    - value: "$2.5k/day"
+      label: "fraud attack stopped in 4 days"
+    - value: "1k+/day"
+      label: "bot signups detected and blocked"
+    - value: "$0"
+      label: "fraud losses since"
     - value: "10×"
-      label: "auth engine scale"
-    - value: "5×"
-      label: "latency reduction"
-    - value: "$0"
-      label: "fraud loss"
-    - value: "2×"
-      label: "Employee of the Month"
+      label: "certificate issuance scale"
   security:
+    - value: "4 days"
+      label: "to kill a $2.5k/day SMS fraud attack"
+    - value: "1k+/day"
+      label: "bot accounts detected and blocked"
     - value: "$0"
-      label: "SMS pump fraud loss"
-    - value: "10k+"
-      label: "daily authenticated users"
+      label: "fraud losses since"
     - value: "Top-10"
-      label: "global PKI vendor"
-    - value: "CVE-aware"
-      label: "defense posture"
+      label: "global certificate authority"
   product:
     - value: "5×"
       label: "latency reduction"
@@ -225,7 +231,7 @@ resumes:
     label: "Canonical"
     file: /resumes/resume_suleyman_musayev.pdf
   - variant: security
-    label: "Security"
+    label: "Fraud & Abuse"
     file: /resumes/resume_suleyman_musayev_security.pdf
   - variant: product
     label: "Product"
