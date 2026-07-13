@@ -57,6 +57,25 @@ social:
 # the GitHub public API at page load (cached 1h in localStorage).
 # ─────────────────────────────────────────────────────────────────────────────
 open_source:
+  - name: domain_sanity
+    repo: msuliq/domain_sanity
+    description: >-
+      Strict domain-name validation the way a certificate authority must: RFC 1035
+      labels, IDN/punycode, Public Suffix List, CA/Browser Forum wildcard rules, and
+      IP, reserved-range, and reverse-zone detection.
+    language: Ruby
+  - name: csr_peek
+    repo: msuliq/csr_peek
+    description: >-
+      Safe, dependency-free CSR and X.509 certificate inspection — subject, SANs, key
+      strength, weak-signature checks, and a pluggable Baseline Requirements policy.
+    language: Ruby
+  - name: svg_sentinel
+    repo: msuliq/svg_sentinel
+    description: >-
+      Lint or sanitize untrusted SVG — blocks scripts, event handlers, XXE, and
+      external references, with a CLI and SARIF output for CI pipelines.
+    language: Ruby
   - name: omniauth_oidc
     repo: msuliq/omniauth_oidc
     description: >-
