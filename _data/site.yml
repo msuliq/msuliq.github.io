@@ -11,13 +11,13 @@
 
 author:
   name: Suleyman Musayev
-  short_title: Fraud & Abuse Engineer
-  long_title: Fraud & Abuse Engineer · Detection, Account Security, Session Defense
+  short_title: Senior Backend & Distributed Systems Engineer
+  long_title: Senior Backend & Distributed Systems Engineer · Scale, Cryptography, Security
   location: Ashgabat, Turkmenistan
   timezone: UTC+5
   remote: true
   visa_required: true
-  open_to: Senior/Staff Security, Fraud & Abuse, and Solutions Engineering roles
+  open_to: Senior/Staff Backend, Distributed Systems, Platform, and Security Engineering roles
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Contact
@@ -120,18 +120,20 @@ writing:
 # Tech stack — surfaced as a grid for recruiter SEO and quick scanning.
 # ─────────────────────────────────────────────────────────────────────────────
 tech_stack:
-  - category: Fraud & Abuse
-    items: [Fraud Detection, Bot Mitigation, Insider Threat Detection, Identity Theft Detection, Device Fingerprinting, Behavioral Analytics, Account Takeover Prevention, Session Security, Replay Mitigation, IP Intelligence, Velocity Controls, reCAPTCHA & Turnstile]
+  - category: Languages
+    items: [Ruby, JavaScript, Python, C, C++, SQL]
+  - category: Backend & Distributed Systems
+    items: ["Ruby on Rails", Sinatra, Hanami, Service Architecture, REST APIs, Async Jobs, Caching, Rate Limiting, Hotwire]
+  - category: Data
+    items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
   - category: Auth & Identity
     items: [OAuth2, OpenID Connect, SAML, JWT, Session-based, mTLS, WebAuthn]
   - category: Security & PKI
-    items: [PKI, Certificate Lifecycle, MPIC, Memory-hard Hashing, X.509, TLS]
-  - category: Languages
-    items: [Ruby, JavaScript, Python, C, C++, SQL]
-  - category: Frameworks
-    items: ["Ruby on Rails", Sinatra, Hanami, Stimulus, Hotwire, Turbo]
-  - category: Data
-    items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
+    items: [PKI, Certificate Lifecycle, MPIC, X.509, TLS]
+  - category: Cryptography
+    items: [Post-Quantum (ML-DSA), Memory-hard Hashing, ASN.1/DER, Digital Signatures]
+  - category: Fraud & Abuse
+    items: [Fraud Detection, Bot Mitigation, Device Fingerprinting, Behavioral Analytics, Account Takeover Prevention, Insider Threat Detection]
   - category: Infrastructure
     items: [Docker, Linux, Nginx, AWS, GitHub Actions, Datadog]
 
@@ -145,19 +147,17 @@ work:
     period: Aug 2023 — Present
     location: Remote · top-10 global certificate authority
     summary: >-
-      Sole architect and lead engineer of the authentication, identity, and anti-fraud
-      platform at a top-10 global certificate authority. Attackers probe the platform
-      daily; my job is to spot them early and make every vector unprofitable. I pair
-      LLM-augmented pattern matching with human-led forensics to take an attack from detection
-      to mitigation in minutes, not days.
+      Sole architect and lead engineer of the authentication, identity, and certificate-
+      issuance platform at a top-10 global certificate authority. I design the distributed
+      services, scale issuance through 10x growth, and, because attackers come with the
+      territory, run the fraud and abuse defense too.
     highlights:
-      - "Detected and shut down months-long attacker reconnaissance across authorization policies, invitation flows, password enumeration, and role-hijacking paths: identified the weak spots and closed every probed vector in code before exploitation."
-      - Built bot-account defense handling 1,000+ fake signups per day, including countermeasures against human CAPTCHA-solving farms; deployed reCAPTCHA v2/v3 and Cloudflare Turnstile.
-      - Built insider-threat detection covering staff and admin abuse, admins colluding with external attackers, and attackers impersonating staff or admins.
-      - Built identity-theft detection that cross-matches IP geolocation, billing, shipping, personal details, and phone numbers across multiple applications.
-      - "Stopped an SMS pumping attack costing ~$2,500/day: designed, built, and deployed the countermeasure in 4 days. Fraud losses since: $0."
-      - "Defeated a persistent session hijacking attacker who survived password resets, 2FA resets, and full endpoint forensics: built session binding, replay attack detection, and automatic termination of suspect sessions at the application layer."
-      - Sole architect of the company-wide authentication platform (OAuth2, OIDC, SAML, session-based flows, external IdP integrations) supporting tens of thousands of daily users; enabled 10× growth in TLS, code signing, and identity certificate issuance.
+      - Sole architect of the company-wide authentication and identity platform (OAuth2, OIDC, SAML, session-based flows, external IdP integrations) serving tens of thousands of daily users; scaled the backend through 10× growth in TLS, code signing, and identity certificate issuance.
+      - "Distributed-systems work: extracted authentication into its own service with cross-service sessions, built multi-perspective certificate validation (MPIC) with quorum across vantage points, and designed the API servers, async workers, and audit pipelines around them."
+      - "Performance at scale: cut backend latency up to 5× and fixed slow API paths by eliminating N+1 queries, a hot-path regex, and a write storm, and by reworking batch polling into per-record jobs."
+      - "Correctness in money and state: idempotent billing, atomic multi-step writes, and APIs that stay backward-compatible as they grow."
+      - "Fraud, security & abuse: shut down months-long attacker reconnaissance before exploitation; bot defense at 1,000+ fake signups/day incl. CAPTCHA-farm countermeasures; stopped a $2,500/day SMS pumping attack in 4 days ($0 losses since); and defeated a persistent session hijacker who survived password resets, 2FA resets, and endpoint forensics."
+      - "Also built insider-threat and identity-theft detection, pairing LLM-augmented pattern matching with human-led forensics to go from detection to mitigation in minutes, not days."
     stack: [Ruby on Rails, PostgreSQL, Redis, OAuth2, OIDC, SAML, PKI, Sidekiq, AWS]
 
   - company: Midstay
@@ -197,14 +197,14 @@ work:
 # ─────────────────────────────────────────────────────────────────────────────
 metrics:
   canonical:
-    - value: "$2.5k/day"
-      label: "fraud attack stopped in 4 days"
-    - value: "1k+/day"
-      label: "bot signups detected and blocked"
+    - value: "10×"
+      label: "issuance scale as sole architect"
+    - value: "5×"
+      label: "backend latency reduction"
+    - value: "14"
+      label: "gems published, 50k+ downloads"
     - value: "$0"
       label: "fraud losses since"
-    - value: "10×"
-      label: "certificate issuance scale"
   security:
     - value: "4 days"
       label: "to kill a $2.5k/day SMS fraud attack"
