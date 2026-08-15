@@ -103,6 +103,34 @@ open_source:
 # Writing — Medium articles, blog posts, talks.
 # ─────────────────────────────────────────────────────────────────────────────
 writing:
+  - title: How I Parse Domain Names For a Certificate Authority
+    url: https://msuliq.medium.com/how-i-parse-domain-names-for-a-certificate-authority-92a940f32bea
+    summary: >-
+      The surprisingly deep rules behind validating a domain name: RFC label
+      limits, IDN/punycode, the Public Suffix List, and the edge cases that
+      break naive checks. Companion to the domain_sanity gem.
+    tag: PKI
+  - title: We Reset the Password. We Reset 2FA. The Attacker Came Back in Seconds.
+    url: https://msuliq.medium.com/we-reset-the-password-we-reset-2fa-the-attacker-came-back-in-seconds-17575ad55246
+    summary: >-
+      A session hijacking war story: an attacker who survived password resets,
+      2FA resets, and full endpoint forensics, and the application-layer defense
+      that finally ended it.
+    tag: Security
+  - title: "A Secret You Cannot See Is Safer: Building a Secure Memory Buffer in C"
+    url: https://msuliq.medium.com/a-secret-you-cannot-see-is-safer-building-a-secure-memory-buffer-in-c-876839dd6a66
+    summary: >-
+      Where a private key really lives while you use it, and a small C library
+      (libpqcsb) that keeps it off swap, out of core dumps, and behind guard
+      pages. What each protection actually buys you.
+    tag: Cryptography
+  - title: "Trust, but Instrument: The Insider Threat Playbook"
+    url: https://msuliq.medium.com/trust-but-instrument-the-insider-threat-playbook-c134742b7de0
+    summary: >-
+      News-anchored playbook (Apple/OpenAI, Rippling v. Deel, Coinbase) for
+      catching insider threats: log reads not just writes, baseline behavior,
+      plant canaries, and gate privileged access.
+    tag: Security
   - title: How to Stop SMS Pump Fraud From Draining Your Wallet (and Sanity)
     url: https://medium.com/@msuliq/how-to-stop-sms-pump-fraud-from-draining-your-wallet-and-sanity-11ea5435608d
     summary: >-
