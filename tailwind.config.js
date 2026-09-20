@@ -17,7 +17,7 @@ module.exports = {
       // Semantic color tokens. The actual RGB values are defined as CSS
       // variables in css/input.css and switch automatically when the `dark`
       // class is added to <html>. This means most components don't need
-      // `dark:` prefixes — `bg-canvas` just works in both modes.
+      // `dark:` prefixes - `bg-canvas` just works in both modes.
       colors: {
         canvas:    'rgb(var(--color-canvas) / <alpha-value>)',
         surface:   'rgb(var(--color-surface) / <alpha-value>)',

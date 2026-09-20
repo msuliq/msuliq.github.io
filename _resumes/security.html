@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Suleyman Musayev — Fraud &amp; Abuse Engineer</title>
+  <title>Suleyman Musayev - Fraud &amp; Abuse Engineer</title>
   <meta name="author" content="Suleyman Musayev">
   <meta name="description" content="Fraud & Abuse Engineer specializing in fraud detection, account takeover defense, session security, and PKI.">
   <link rel="stylesheet" href="resume.css">
+  <style>
+    /*
+     * Density overrides for the security variant.
+     * This is the most bullet-dense resume; tightens vertical rhythm just
+     * enough to hold two US Letter pages without dropping any signal.
+     * All other styling stays in resume.css.
+     */
+    body { font-size: 9.75pt; line-height: 1.38; }
+    .header { padding-bottom: 8pt; margin-bottom: 11pt; }
+    .name { font-size: 22pt; }
+    .title { font-size: 11.5pt; }
+    section { margin-top: 9pt; }
+    h2 { margin-bottom: 5pt; }
+    .summary p { font-size: 9.5pt; line-height: 1.42; }
+    .role { margin-bottom: 8pt; }
+    .role li { font-size: 9.5pt; line-height: 1.4; margin-bottom: 1.5pt; }
+    .skills dl { gap: 3pt 14pt; }
+    .skills dd { font-size: 9.5pt; }
+    .project { margin-bottom: 4pt; }
+    .project-desc, .meta-line { font-size: 9.5pt; }
+  </style>
 </head>
 <body>
 
@@ -28,9 +49,9 @@
       environments. Sole architect of the authentication and anti-fraud platform at SSL.com
       (top-10 global certificate authority): bot defense at 1,000+ fake signups/day,
       insider-threat and identity-theft detection, and long-horizon surveillance of attackers
-      probing authorization and account flows. Stopped a $2,500/day SMS pumping attack in
-      4 days; defeated a persistent session hijacking attacker who had survived password
-      resets, 2FA resets, and endpoint forensics. I pair LLM-augmented pattern matching with
+      probing authorization and account flows. Stopped a four-figure-per-day SMS pumping attack
+      in 4 days; defeated a persistent session hijacking attacker. I pair LLM-augmented
+      pattern matching with
       human-led forensics to take an attack from detection to mitigation in minutes.
       Open to senior and staff fraud, abuse, trust &amp; safety, and security engineering roles.
     </p>
@@ -42,16 +63,16 @@
     <div class="role">
       <div class="role-header">
         <p class="role-title">Software Engineer · <span class="company">SSL.com</span></p>
-        <p class="role-meta">Aug 2023 — Present</p>
+        <p class="role-meta">Aug 2023 - Present</p>
       </div>
       <p class="role-location">Remote · top-10 global PKI vendor · sole architect of auth &amp; identity platform</p>
       <ul>
-        <li><strong>Detected and shut down months-long attacker reconnaissance</strong> across authorization policies, invitation flows, password enumeration, and role-hijacking paths: identified the weak spots and closed every probed vector in code before exploitation.</li>
+        <li><strong>Detected and shut down months-long attacker reconnaissance</strong> across authorization and account flows, closing every probed vector in code before exploitation - including an account-takeover path in account recovery, a second-factor bypass in the authentication flow, and abuse of the invitation system used to push offensive content.</li>
         <li>Built <strong>bot-account defense handling 1,000+ fake signups per day</strong>, including countermeasures against human CAPTCHA-solving farms; deployed reCAPTCHA v2/v3 and Cloudflare Turnstile.</li>
-        <li>Built <strong>insider-threat detection</strong> covering staff and admin abuse, admins colluding with external attackers, and attackers impersonating staff or admins.</li>
+        <li>Built <strong>insider-threat detection</strong> covering privileged-account misuse and impersonation of staff and admin roles.</li>
         <li>Built <strong>identity-theft detection</strong> that cross-matches IP geolocation, billing, shipping, personal details, and phone numbers across multiple applications.</li>
-        <li><strong>Stopped an SMS pumping attack costing ~$2,500/day</strong>: designed, built, and deployed the countermeasure in 4 days using dynamic risk scoring, anomaly detection, and adaptive throttling. Fraud losses since: <strong>$0</strong>.</li>
-        <li><strong>Defeated a persistent session hijacking attacker</strong> who survived password resets, 2FA resets, and full endpoint forensics: built session binding, replay attack detection, and automatic termination of suspect sessions at the application layer.</li>
+        <li><strong>Stopped a four-figure-per-day SMS pumping attack</strong>: designed, built, and deployed the countermeasure in 4 days using dynamic risk scoring, anomaly detection, and adaptive throttling. Fraud losses since: <strong>$0</strong>.</li>
+        <li><strong>Defeated a persistent session hijacking attacker</strong> who survived conventional account-recovery and endpoint remediation: built session binding, replay attack detection, and automatic termination of suspect sessions at the application layer.</li>
         <li><strong>Sole architect</strong> of the authentication and identity platform supporting tens of thousands of daily users; enabled 10× growth in TLS, code signing, and identity certificate issuance.</li>
         <li>Designed and implemented <strong>OAuth 2.0, OpenID Connect (OIDC), SAML, and session-based</strong> auth, including secure cross-domain flows and external identity provider integrations.</li>
         <li>Built MPIC (Multi-Perspective Issuance Corroboration) compliance per CA/Browser Forum Baseline Requirements; led architecture for distributed auth services, API servers, and audit-logging pipelines.</li>
@@ -61,11 +82,11 @@
     <div class="role">
       <div class="role-header">
         <p class="role-title">Software Engineer · <span class="company">Midstay</span></p>
-        <p class="role-meta">Aug 2022 — Jan 2024</p>
+        <p class="role-meta">Aug 2022 - Jan 2024</p>
       </div>
       <p class="role-location">Remote · early engineer, 5-person team, ~1k DAU consumer product</p>
       <ul>
-        <li>Closed <strong>authorization flaws surfaced in a live penetration test</strong>, including a broken access control that let the tester join private two-person chats as a third participant.</li>
+        <li>Closed <strong>authorization flaws surfaced in a live penetration test</strong>, including a broken access control in a private messaging flow.</li>
         <li>Led incident response against exploitation attempts by advanced attackers; implemented safeguards to prevent recurrence and improve system resilience.</li>
         <li>Reduced backend latency by up to <strong>5×</strong> and improved user retention by <strong>15%</strong> through performance and product improvements.</li>
         <li>Shipped 4 major product features in 12 months, supporting multiple product pivots.</li>
@@ -76,12 +97,12 @@
     <div class="role">
       <div class="role-header">
         <p class="role-title">Quantitative Trading Operations · <span class="company">Private Trading Firm</span></p>
-        <p class="role-meta">Mar 2020 — May 2021</p>
+        <p class="role-meta">Mar 2020 - May 2021</p>
       </div>
       <p class="role-location">Risk management for leveraged portfolio across brokers, markets, and instruments</p>
       <ul>
         <li>Built automated hedging strategies; reduced hedging costs by up to <strong>35%</strong> through strategy optimization and execution improvements.</li>
-        <li>Developed strong intuition for risk modeling and decision-making in high-stakes environments — a foundation I apply directly to security threat modeling.</li>
+        <li>Developed strong intuition for risk modeling and decision-making in high-stakes environments - a foundation I apply directly to security threat modeling.</li>
       </ul>
     </div>
   </section>
@@ -119,14 +140,14 @@
     <h2>Open Source</h2>
     <div class="project">
       <p class="project-name">balloon_hashing &amp; yescrypt</p>
-      <p class="project-desc">Ruby implementations of the Balloon and Yescrypt memory-hard password hashing algorithms — modern, GPU-resistant alternatives to bcrypt.</p>
+      <p class="project-desc">Ruby implementations of the Balloon and Yescrypt memory-hard password hashing algorithms - modern, GPU-resistant alternatives to bcrypt.</p>
     </div>
     <div class="project">
-      <p class="project-name">omniauth_oidc <span style="color:#777;font-weight:400;font-size:9pt">— github.com/msuliq/omniauth_oidc</span></p>
+      <p class="project-name">omniauth_oidc <span style="color:#777;font-weight:400;font-size:9pt">- github.com/msuliq/omniauth_oidc</span></p>
       <p class="project-desc">OmniAuth strategy for OpenID Connect with first-class support for Microsoft Entra ID and Cloudflare Access.</p>
     </div>
     <div class="project">
-      <p class="project-name">ip_geo_lookup <span style="color:#777;font-weight:400;font-size:9pt">— github.com/msuliq/ip_geo_lookup</span></p>
+      <p class="project-name">ip_geo_lookup <span style="color:#777;font-weight:400;font-size:9pt">- github.com/msuliq/ip_geo_lookup</span></p>
       <p class="project-desc">IP geolocation lookup for Ruby designed for fraud detection, access control, and request enrichment in security workflows.</p>
     </div>
     <div class="project">
@@ -136,15 +157,11 @@
   </section>
 
   <section>
-    <h2>Writing</h2>
+    <h2>Writing &amp; Languages</h2>
     <p class="meta-line">
-      <strong>"How to Stop SMS Pump Fraud From Draining Your Wallet (and Sanity)"</strong> — Medium. Practical playbook for detecting and shutting down SMS pumping attacks, drawn from production experience.
+      <strong>"How to Stop SMS Pump Fraud From Draining Your Wallet (and Sanity)"</strong> - Medium.
     </p>
-  </section>
-
-  <section>
-    <h2>Languages</h2>
-    <p class="meta-line">
+    <p class="meta-line" style="margin-top:3pt">
       <strong>Languages:</strong> English (Professional) · Russian (Native) · Turkmen (Native) · Turkish (Conversational)
     </p>
   </section>

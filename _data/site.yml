@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=
 # ─────────────────────────────────────────────────────────────────────────────
-# Site data — single source of truth for everything that varies.
+# Site data - single source of truth for everything that varies.
 # Pages and includes read from this file via {{ site.data.site.* }}.
 #
 # Note on the directive above: it disables YAML schema validation for this
 # file. Without it, IDE language servers misidentify _data/*.yml files as
 # Jekyll _config.yml and flag every property as "not allowed". This file is
-# free-form data, not Jekyll config — Jekyll itself reads it correctly.
+# free-form data, not Jekyll config - Jekyll itself reads it correctly.
 # ─────────────────────────────────────────────────────────────────────────────
 
 author:
@@ -33,7 +33,7 @@ contact:
   linkedin_message_url: "https://www.linkedin.com/in/smusayev"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Social profiles — rendered in the footer and contact section.
+# Social profiles - rendered in the footer and contact section.
 # ─────────────────────────────────────────────────────────────────────────────
 social:
   - name: LinkedIn
@@ -53,7 +53,7 @@ social:
     icon: medium
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Open source projects — rendered as cards. Stars are fetched live via
+# Open source projects - rendered as cards. Stars are fetched live via
 # the GitHub public API at page load (cached 1h in localStorage).
 # ─────────────────────────────────────────────────────────────────────────────
 open_source:
@@ -67,13 +67,13 @@ open_source:
   - name: csr_peek
     repo: msuliq/csr_peek
     description: >-
-      Safe, dependency-free CSR and X.509 certificate inspection — subject, SANs, key
+      Safe, dependency-free CSR and X.509 certificate inspection - subject, SANs, key
       strength, weak-signature checks, and a pluggable Baseline Requirements policy.
     language: Ruby
   - name: svg_sentinel
     repo: msuliq/svg_sentinel
     description: >-
-      Lint or sanitize untrusted SVG — blocks scripts, event handlers, XXE, and
+      Lint or sanitize untrusted SVG - blocks scripts, event handlers, XXE, and
       external references, with a CLI and SARIF output for CI pipelines.
     language: Ruby
   - name: omniauth_oidc
@@ -85,7 +85,7 @@ open_source:
   - name: ip_geo_lookup
     repo: msuliq/ip_geo_lookup
     description: >-
-      Lightweight IP geolocation lookup for Ruby — useful for fraud detection,
+      Lightweight IP geolocation lookup for Ruby - useful for fraud detection,
       access control, and request enrichment.
     language: Ruby
   - name: balloon_hashing
@@ -100,7 +100,7 @@ open_source:
     language: Ruby
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Writing — Medium articles, blog posts, talks.
+# Writing - Medium articles, blog posts, talks.
 # ─────────────────────────────────────────────────────────────────────────────
 writing:
   - title: How I Parse Domain Names For a Certificate Authority
@@ -145,7 +145,7 @@ writing:
     tag: Engineering
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Tech stack — surfaced as a grid for recruiter SEO and quick scanning.
+# Tech stack - surfaced as a grid for recruiter SEO and quick scanning.
 # ─────────────────────────────────────────────────────────────────────────────
 tech_stack:
   - category: Languages
@@ -166,13 +166,13 @@ tech_stack:
     items: [Docker, Linux, Nginx, AWS, GitHub Actions, Datadog]
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Work history — rendered as a vertical timeline of cards.
+# Work history - rendered as a vertical timeline of cards.
 # Each role lists 3-5 highlight bullets with concrete impact.
 # ─────────────────────────────────────────────────────────────────────────────
 work:
   - company: SSL.com
     role: Software Engineer
-    period: Aug 2023 — Present
+    period: Aug 2023 - Present
     location: Remote · top-10 global certificate authority
     summary: >-
       Sole architect and lead engineer of the authentication, identity, and certificate-
@@ -184,13 +184,13 @@ work:
       - "Distributed-systems work: extracted authentication into its own service with cross-service sessions, built multi-perspective certificate validation (MPIC) with quorum across vantage points, and designed the API servers, async workers, and audit pipelines around them."
       - "Performance at scale: cut backend latency up to 5× and fixed slow API paths by eliminating N+1 queries, a hot-path regex, and a write storm, and by reworking batch polling into per-record jobs."
       - "Correctness in money and state: idempotent billing, atomic multi-step writes, and APIs that stay backward-compatible as they grow."
-      - "Fraud, security & abuse: shut down months-long attacker reconnaissance before exploitation; bot defense at 1,000+ fake signups/day incl. CAPTCHA-farm countermeasures; stopped a $2,500/day SMS pumping attack in 4 days ($0 losses since); and defeated a persistent session hijacker who survived password resets, 2FA resets, and endpoint forensics."
+      - "Fraud, security & abuse: shut down months-long attacker reconnaissance before exploitation; closed account-takeover, second-factor-bypass, and invitation-abuse paths; bot defense at 1,000+ fake signups/day incl. CAPTCHA-farm countermeasures; stopped a four-figure-per-day SMS pumping attack in 4 days ($0 losses since); and defeated a persistent session hijacker."
       - "Also built insider-threat and identity-theft detection, pairing LLM-augmented pattern matching with human-led forensics to go from detection to mitigation in minutes, not days."
     stack: [Ruby on Rails, PostgreSQL, Redis, OAuth2, OIDC, SAML, PKI, Sidekiq, AWS]
 
   - company: Midstay
     role: Software Engineer
-    period: Nov 2022 — Jan 2024
+    period: Nov 2022 - Jan 2024
     location: Remote · early engineer, 5-person team, ~1k DAU
     summary: >-
       Early engineer on a 5-person team building a consumer product with ~1k DAU
@@ -198,7 +198,7 @@ work:
       stack and led incident response. Final 5 months were a contract wind-down with
       gradual transition of responsibilities while ramping up at SSL.com.
     highlights:
-      - Closed authorization flaws surfaced in a live penetration test, including a broken access control that let the tester join private two-person chats as a third participant; led incident response against advanced attackers.
+      - Closed authorization flaws surfaced in a live penetration test, including a broken access control in a private messaging flow; led incident response against advanced attackers.
       - Reduced backend latency by up to 5× through query optimization, indexing, and caching.
       - Improved user retention by 15% through targeted performance and product improvements.
       - Shipped 4 major product features in 12 months, supporting multiple product pivots.
@@ -206,7 +206,7 @@ work:
 
   - company: Private Trading Firm
     role: Quantitative Trading Operations
-    period: Mar 2020 — May 2021
+    period: Mar 2020 - May 2021
     location: Built and managed automated hedging across brokers, markets, and instruments
     summary: >-
       Built and managed automated hedging strategies across multiple brokers, markets, and
@@ -235,7 +235,7 @@ metrics:
       label: "fraud losses since"
   security:
     - value: "4 days"
-      label: "to kill a $2.5k/day SMS fraud attack"
+      label: "to kill a high-cost SMS fraud attack"
     - value: "1k+/day"
       label: "bot accounts detected and blocked"
     - value: "$0"
@@ -271,7 +271,7 @@ metrics:
       label: "perf improvement"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Resume PDFs — picker shows all five.
+# Resume PDFs - picker shows all five.
 # ─────────────────────────────────────────────────────────────────────────────
 resumes:
   - variant: canonical
@@ -294,9 +294,9 @@ resumes:
 # Analytics
 #
 # Note: Microsoft Clarity is wired through GTM (project ID w8bk11a100),
-# so we only need the GTM snippet — Clarity loads via that tag.
+# so we only need the GTM snippet - Clarity loads via that tag.
 # ─────────────────────────────────────────────────────────────────────────────
 analytics:
   ga4_id: G-RE9SDT8WBG
   gtm_id: GTM-KX3F3C3
-  clarity_id: w8bk11a100  # for reference only — fires through GTM
+  clarity_id: w8bk11a100  # for reference only - fires through GTM

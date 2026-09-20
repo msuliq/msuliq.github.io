@@ -1,12 +1,12 @@
 /*
- * Shared resume stylesheet — print to US Letter (8.5" × 11").
+ * Shared resume stylesheet - print to US Letter (8.5" × 11").
  *
  * Design priorities:
  *   1. ATS parseable: single column, real text, standard section names
  *      ("Summary", "Experience", "Skills", "Projects", "Education").
  *   2. Recruiter scannable: clear hierarchy, generous whitespace, no clutter.
  *   3. Print-clean: black on white, no background colors, US Letter format.
- *   4. Subtle accent only — a single color stripe under the name and the
+ *   4. Subtle accent only - a single color stripe under the name and the
  *      role titles. Nothing decorative.
  */
 

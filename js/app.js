@@ -1,5 +1,5 @@
 /*
- * msuliq.github.io — client script
+ * msuliq.github.io - client script
  *
  * Responsibilities:
  *   - Theme toggle (dark default, persisted in localStorage)
@@ -17,7 +17,7 @@
   // Read utm_* params off the landing URL once per session, store them in
   // sessionStorage, and attach them to every tracked event afterwards.
   // This is how we attribute interviews/clicks to a specific CV variant
-  // or LinkedIn campaign — tag your outbound links and the source flows
+  // or LinkedIn campaign - tag your outbound links and the source flows
   // through GA4 automatically.
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   var utmStored = {};
@@ -79,7 +79,7 @@
                   (subject ? '?subject=' + encodeURIComponent(subject) : '');
         window.location.href = url;
       } catch (err) {
-        // Fail silently — better than throwing in front of the user.
+        // Fail silently - better than throwing in front of the user.
       }
     });
   });
@@ -160,7 +160,7 @@
   // For each .stars[data-stars-for="owner/repo"] node we either pull a
   // fresh count from the cache or fetch it from the public API. On
   // success we reveal the badge. On failure (rate limit, network) we
-  // simply leave it hidden — graceful degradation.
+  // simply leave it hidden - graceful degradation.
   var STARS_TTL_MS = 60 * 60 * 1000; // 1 hour
   document.querySelectorAll('[data-stars-for]').forEach(function (el) {
     var repo = el.getAttribute('data-stars-for');
