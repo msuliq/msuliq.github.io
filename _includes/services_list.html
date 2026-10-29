@@ -1,0 +1,26 @@
+{%- comment -%}
+  Services grid for the services variant. Reads site.data.site.services.
+  Two columns at md+, stacked on mobile.
+{%- endcomment -%}
+
+<section id="services" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">What I build</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Less copy-paste for your team.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      Custom code in Ruby on Rails, Go, Python, React, or Hotwire. No chains of
+      no-code automations that break quietly when one step changes.
+    </p>
+  </div>
+
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {%- for s in site.data.site.services -%}
+    <li class="rounded-xl border border-hairline bg-surface p-6">
+      <h3 class="text-base sm:text-lg font-semibold text-ink mb-2">{{ s.title }}</h3>
+      <p class="text-sm text-muted leading-relaxed">{{ s.body }}</p>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

@@ -1,0 +1,23 @@
+{%- comment -%}
+  How a fixed-price project runs, for the services variant. Reads
+  site.data.site.process: step, body. Numbered list, 2 columns at md+.
+{%- endcomment -%}
+
+<section id="process" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">How it works</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Scoped up front. Priced per project.
+    </h2>
+  </div>
+
+  <ol class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {%- for p in site.data.site.process -%}
+    <li class="rounded-xl border border-hairline bg-surface p-6">
+      <p class="text-sm font-mono text-accent mb-2">{{ forloop.index | prepend: "0" }}</p>
+      <h3 class="text-base sm:text-lg font-semibold text-ink mb-2">{{ p.step }}</h3>
+      <p class="text-sm text-muted leading-relaxed">{{ p.body }}</p>
+    </li>
+    {%- endfor -%}
+  </ol>
+</section>

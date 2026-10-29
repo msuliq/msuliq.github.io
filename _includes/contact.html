@@ -1,17 +1,23 @@
 {%- comment -%}
   Contact section. Closing CTA, three contact channels, resume picker,
   and a clear statement of what kind of work the user is open to.
+  Pages can override contact_heading, contact_body, and linkedin_hint,
+  and set hide_resumes to drop the resume picker.
 {%- endcomment -%}
 
 <section id="contact" class="container-narrow section">
   <div class="max-w-prose mb-10">
     <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Contact</p>
     <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
-      Let's build something secure together.
+      {{ page.contact_heading | default: "Let's build something secure together." }}
     </h2>
     <p class="text-muted leading-relaxed">
+      {%- if page.contact_body %}
+      {{ page.contact_body }}
+      {%- else %}
       I'm currently open to {{ site.data.site.author.open_to | downcase }}.
       The fastest way to reach me is to book a 15-minute intro call. Email and LinkedIn also work.
+      {%- endif %}
     </p>
   </div>
 
@@ -67,9 +73,11 @@
         <span class="text-sm font-mono uppercase tracking-wider">LinkedIn</span>
       </div>
       <p class="text-ink font-medium mb-1">Message on LinkedIn</p>
-      <p class="text-sm text-muted">Connect or send a DM. Mention the role to skip the queue.</p>
+      <p class="text-sm text-muted">{{ page.linkedin_hint | default: "Connect or send a DM. Mention the role to skip the queue." }}</p>
     </a>
   </div>
 
+  {%- unless page.hide_resumes %}
   {% include resume_picker.html %}
+  {%- endunless %}
 </section>

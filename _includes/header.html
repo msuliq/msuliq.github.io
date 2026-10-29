@@ -1,7 +1,9 @@
 {%- comment -%}
   Top navigation.
   - Logo links to /
-  - In-page anchor links scroll to sections (smooth scroll set in input.css)
+  - In-page anchor links scroll to sections (smooth scroll set in input.css).
+    A page can replace them with its own `nav` front matter list of
+    {label, href}, for variants that don't render every section.
   - Theme toggle uses sun/moon icons; the active icon is shown via Tailwind
     `dark:hidden` / `hidden dark:inline` so we never need JS to swap them.
 {%- endcomment -%}
@@ -16,10 +18,16 @@
     </a>
 
     <nav class="flex items-center gap-1 sm:gap-2 text-sm" aria-label="Primary">
+      {%- if page.nav -%}
+      {%- for item in page.nav %}
+      <a href="{{ item.href }}" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">{{ item.label }}</a>
+      {%- endfor %}
+      {%- else %}
       <a href="#work" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Work</a>
       <a href="#open-source" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Open source</a>
       <a href="#writing" class="hidden md:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Writing</a>
       <a href="#contact" class="hidden sm:inline-block px-3 py-2 text-muted hover:text-ink no-underline">Contact</a>
+      {%- endif %}
 
       <button
         type="button"

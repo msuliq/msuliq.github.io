@@ -18,6 +18,9 @@ author:
   remote: true
   visa_required: true
   open_to: Senior/Staff Backend, Distributed Systems, Platform, and Security Engineering roles
+  default_badges:
+    - "Remote · global"
+    - "Open to relocation · visa sponsorship"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Contact
@@ -149,13 +152,19 @@ writing:
 # ─────────────────────────────────────────────────────────────────────────────
 tech_stack:
   - category: Languages
-    items: [Ruby, JavaScript, Python, C, C++, SQL]
+    items: [Ruby, Go, JavaScript, Python, C, C++, SQL]
   - category: Backend & Distributed Systems
-    items: ["Ruby on Rails", Sinatra, Hanami, Service Architecture, REST APIs, Async Jobs, Caching, Rate Limiting, Hotwire]
+    items: ["Ruby on Rails", Sinatra, Hanami, Service Architecture, REST APIs, Async Jobs, Caching, Rate Limiting]
+  - category: Frontend
+    items: [Hotwire, Turbo, Stimulus, React, Tailwind CSS, htmx]
+  - category: Integrations
+    items: [Intercom, Slack, Salesforce, Stripe, Webhooks, REST API Clients & Servers, OAuth Provider & Client, OpenAPI, Amazon SES, LinkedIn API]
+  - category: AI & Automation
+    items: [MCP Servers, Claude Code Plugins, LLM Triage & Summarization, LLM Evals]
   - category: Data
     items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
   - category: Auth & Identity
-    items: [OAuth2, OpenID Connect, SAML, JWT, Session-based, mTLS, WebAuthn]
+    items: [OAuth2, OpenID Connect, SAML, SSO, Passkeys, WebAuthn, Two-Factor Auth, JWT, Session-based, mTLS, reCAPTCHA, Cloudflare Turnstile]
   - category: Security & PKI
     items: [PKI, Certificate Lifecycle, MPIC, X.509, TLS]
   - category: Cryptography
@@ -260,6 +269,15 @@ metrics:
       label: "backend · security · ops"
     - value: "Cross-domain"
       label: "finance + engineering"
+  services:
+    - value: "10×"
+      label: "growth handled as sole architect"
+    - value: "5×"
+      label: "faster backend after my fixes"
+    - value: "Fixed"
+      label: "price per project, agreed up front"
+    - value: "Yours"
+      label: "code, accounts, and credentials"
   bigtech:
     - value: "10×"
       label: "system scale growth"
@@ -269,6 +287,132 @@ metrics:
       label: "architecture lead"
     - value: "5×"
       label: "perf improvement"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Services page (services.html) - what I build for support and ops teams,
+# anonymized proof, and how a fixed-price project runs. Employer and
+# product names stay out of this copy on purpose.
+# ─────────────────────────────────────────────────────────────────────────────
+services:
+  - title: Support tooling for Intercom teams
+    body: >-
+      Conversations tagged and routed on arrival, account and billing context pulled
+      into the inbox so agents stop switching tabs, escalations posted to the right
+      Slack channel, and SLA risks flagged before they turn into churn.
+  - title: Integrations and two-way syncs
+    body: >-
+      Intercom, Salesforce, Stripe, Slack, your own app, or any REST API. Verified
+      webhooks, retries, and idempotent handlers, so a record is never written twice
+      and a failed call never disappears silently.
+  - title: Authentication and login security
+    body: >-
+      Single sign-on over SAML and OpenID Connect with Entra ID, Cloudflare Access, or
+      any identity provider. OAuth sign-in, passkeys, two-factor authentication, and
+      bot protection with reCAPTCHA and Cloudflare Turnstile that stops fake signups
+      without punishing real users.
+  - title: APIs, clients and servers
+    body: >-
+      REST APIs for your product with API keys, scopes, rate limits, and OpenAPI docs.
+      OAuth provider or client, depending on which side of the connection you are.
+      Clients for third-party APIs that handle pagination, retries, and token refresh.
+  - title: Internal tools that replace spreadsheets
+    body: >-
+      Admin panels, ops consoles, and approval flows with roles and an audit log. The
+      spreadsheet three people edit at once becomes a tool with one source of truth.
+  - title: Dashboards and reporting
+    body: >-
+      The numbers someone assembles by hand every Monday, live on one screen, plus
+      scheduled digests to Slack or email.
+  - title: AI-assisted workflows
+    body: >-
+      LLM triage, summaries, and draft replies your team approves before anything is
+      sent. MCP servers and Claude plugins that let AI assistants work with your
+      internal systems under scoped, revocable permissions.
+  - title: Security built in, not bolted on
+    body: >-
+      My background is security engineering. Least-privilege API scopes, secrets kept
+      out of code, signed webhooks, and audit trails come standard, because your
+      tools touch customer data.
+
+case_studies:
+  - title: Company-wide authentication platform
+    context: Top-10 global certificate authority
+    body: >-
+      Sole architect of login and identity for tens of thousands of daily users: OAuth2,
+      OpenID Connect, SAML, external identity providers, and the OAuth provider side, not
+      only the client. Extracted authentication into its own service with sessions that
+      work across services, and closed account-takeover and second-factor-bypass paths.
+    stack: [Rails, OAuth2, OIDC, SAML, PostgreSQL]
+  - title: Bot protection at 1,000+ fake signups a day
+    context: Top-10 global certificate authority
+    body: >-
+      Layered signup defense with reCAPTCHA v2/v3 and Cloudflare Turnstile, plus
+      countermeasures for human CAPTCHA farms that solve challenges by hand. Fake
+      accounts stopped without adding friction for real customers.
+    stack: [Rails, reCAPTCHA, Turnstile, Redis]
+  - title: Stripe billing that cannot double-apply
+    context: SaaS product, Ruby on Rails
+    body: >-
+      Full subscription lifecycle - checkout, upgrades, cancellations, refunds, failed
+      payments, trial reminders, and disputes - driven by eight Stripe webhook events.
+      Every event is recorded before it is processed, so Stripe's retries never charge,
+      refund, or downgrade anyone twice.
+    stack: [Rails, Stripe, PostgreSQL]
+  - title: An MCP server and Claude plugin for a live product
+    context: SaaS product, Ruby on Rails + Python
+    body: >-
+      Seventeen tools that let Claude work inside a user's own account, behind OAuth
+      with PKCE, dynamic client registration, a mandatory consent screen, and the same
+      read/write/admin scopes as the REST API. Shipped as a published Claude Code
+      plugin with slash commands, skills, and an eval suite run before each release.
+    stack: [Rails, OAuth 2.1, MCP, Python]
+  - title: One business layer, three surfaces
+    context: Standalone service, Go
+    body: >-
+      A Go service where the web UI, the MCP endpoint, and a JSON API all run through
+      one tool registry, so they cannot drift apart. Callers subscribe to state changes
+      through HMAC-signed webhook callbacks, and every state change is written to an
+      event log in the same transaction.
+    stack: [Go, htmx, SQLite, MCP]
+  - title: Team alerts where people already work
+    context: SaaS product, Ruby on Rails
+    body: >-
+      Per-team notifications over Slack, email, and custom webhooks. Destination URLs
+      are resolved and checked before use, so a customer-supplied webhook cannot be
+      pointed at internal infrastructure.
+    stack: [Rails, Slack, Webhooks]
+  - title: Admin console and email pipeline
+    context: SaaS product, Ruby on Rails + Hotwire
+    body: >-
+      Internal console for users, teams, subscriptions, capacity, and monitoring stats.
+      Moved the newsletter off a third-party email platform onto Amazon SES, with
+      bounce and complaint handling over verified SNS notifications.
+    stack: [Rails, Hotwire, Amazon SES, SNS]
+  - title: Staff tooling for fraud and abuse response
+    context: Top-10 global certificate authority
+    body: >-
+      Internal detection and review tooling that pairs LLM-assisted pattern matching
+      with human-led forensics, taking the team from first signal to mitigation in
+      minutes instead of days. Also covered staff and admin activity, not only
+      customer accounts.
+    stack: [Rails, PostgreSQL, LLMs]
+
+process:
+  - step: Tell me what your team does by hand
+    body: >-
+      A 15-minute call or a short message. Which tools, which steps, and how often.
+  - step: Written scope and a fixed price
+    body: >-
+      What it will do, what it will not do, and how we will both know it is done. You
+      pay per project, not per hour.
+  - step: Built in your accounts, demoed as it grows
+    body: >-
+      Code lives in your repository and credentials in your accounts from day one.
+      You see working pieces at each milestone, not a big reveal at the end.
+  - step: Handoff you can run without me
+    body: >-
+      Setup notes, a runbook for when something breaks, and a fix window after launch
+      included in every quote.
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Resume PDFs - picker shows all five.

@@ -1,0 +1,37 @@
+{%- comment -%}
+  Anonymized proof for the services variant. Reads
+  site.data.site.case_studies: title, context, body, stack.
+{%- endcomment -%}
+
+<section id="proof" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Recent work</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Built and running in production.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      Client and employer names are left out. Happy to walk through any of these on a call.
+    </p>
+  </div>
+
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {%- for c in site.data.site.case_studies -%}
+    <li>
+      <article class="h-full rounded-xl border border-hairline bg-surface p-6 flex flex-col">
+        <p class="text-xs font-mono text-muted uppercase tracking-wider mb-2">{{ c.context }}</p>
+        <h3 class="text-base sm:text-lg font-semibold text-ink mb-2">{{ c.title }}</h3>
+        <p class="text-sm text-muted leading-relaxed mb-4 flex-1">{{ c.body }}</p>
+        {%- if c.stack -%}
+        <ul class="flex flex-wrap gap-1.5">
+          {%- for tech in c.stack -%}
+          <li class="inline-flex items-center rounded-md bg-elevated text-muted px-2 py-1 text-xs font-mono">
+            {{ tech }}
+          </li>
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </article>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

@@ -4,6 +4,8 @@
     page.headline   - main H1 (defaults to site author short_title)
     page.tagline    - one-line subhead under name
     page.summary    - 1–2 short paragraphs
+    page.badges     - plain availability badges after location (defaults
+                      to site author default_badges)
   Falls back to canonical defaults so any variant page can omit any field.
 {%- endcomment -%}
 
@@ -50,12 +52,12 @@
           {% include icons/location.html size="h-3.5 w-3.5" %}
           {{ site.data.site.author.location }} ({{ site.data.site.author.timezone }})
         </li>
+        {%- assign badges = page.badges | default: site.data.site.author.default_badges -%}
+        {%- for badge in badges %}
         <li class="inline-flex items-center gap-1.5 rounded-full bg-elevated text-muted px-3 py-1">
-          Remote · global
+          {{ badge }}
         </li>
-        <li class="inline-flex items-center gap-1.5 rounded-full bg-elevated text-muted px-3 py-1">
-          Open to relocation · visa sponsorship
-        </li>
+        {%- endfor %}
       </ul>
 
       {%- comment -%} Primary CTAs {%- endcomment -%}
