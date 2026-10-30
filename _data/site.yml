@@ -302,8 +302,8 @@ metrics:
       label: "backend latency reduction"
     - value: "14"
       label: "gems published, 60k+ downloads"
-    - value: "Top-10"
-      label: "global certificate authority"
+    - value: "2× ROI"
+      label: "pay me $1, save $2. My goal for every engagement"
   security:
     - value: "4 days"
       label: "to kill a high-cost SMS fraud attack"
@@ -482,10 +482,10 @@ process:
 # ─────────────────────────────────────────────────────────────────────────────
 advisory:
   areas:
-    - title: Architecture reviews
+    - title: APIs and integrations
       body: >-
-        A second opinion on a design before you build it, or on a system that is
-        starting to struggle under load.
+        How your systems should talk to each other: API design, connecting tools like
+        Stripe, Salesforce, Intercom, and Slack, and webhooks that never lose data.
     - title: Security and fraud
       body: >-
         A review of your login, account recovery, and payment flows, and a plan to stop
