@@ -11,8 +11,8 @@
 
 author:
   name: Suleyman Musayev
-  short_title: Senior Backend & Distributed Systems Engineer
-  long_title: Senior Backend & Distributed Systems Engineer · Scale, Cryptography, Security
+  short_title: Senior Staff Engineer
+  long_title: Senior Staff Engineer · Distributed Systems, Scale, Cryptography, Security
   location: Ashgabat, Turkmenistan
   timezone: UTC+5
   remote: true
@@ -31,6 +31,10 @@ author:
 # variants (+blog, +security, +product, +startup, +bigtech).
 # ─────────────────────────────────────────────────────────────────────────────
 contact:
+  # Plain-text address for machine-readable files only (llms.txt,
+  # llms-full.txt, profile.json). The HTML pages keep the obfuscated
+  # click-to-reveal button. Same address the resume PDFs already print.
+  agent_email: "slmusayev+agents@gmail.com"
   booking_url: "https://calendly.com/msuliq"
   booking_label: "Book a 15-min intro"
   linkedin_message_url: "https://www.linkedin.com/in/smusayev"
@@ -180,26 +184,29 @@ tech_stack:
 # ─────────────────────────────────────────────────────────────────────────────
 work:
   - company: SSL.com
-    role: Software Engineer
+    role: Senior Staff Engineer
     period: Aug 2023 - Present
+    start_date: "2023-08"
     location: Remote · top-10 global certificate authority
     summary: >-
-      Sole architect and lead engineer of the authentication, identity, and certificate-
-      issuance platform at a top-10 global certificate authority. I design the distributed
-      services, scale issuance through 10x growth, and, because attackers come with the
-      territory, run the fraud and abuse defense too.
+      Sole architect and lead engineer of the authentication, identity, and
+      certificate-issuance platform at a top-10 global certificate authority. I design
+      the distributed services and, because attackers come with the territory, run the
+      fraud and abuse defense too. On this platform the core business scaled 10x.
     highlights:
-      - Sole architect of the company-wide authentication and identity platform (OAuth2, OIDC, SAML, session-based flows, external IdP integrations) serving tens of thousands of daily users; scaled the backend through 10× growth in TLS, code signing, and identity certificate issuance.
+      - Sole architect of the company-wide authentication and identity platform (OAuth2, OIDC, SAML, session-based flows, external IdP integrations) serving tens of thousands of daily users; scaled the platform through 10× core business growth across TLS, code signing, and identity certificate issuance.
       - "Distributed-systems work: extracted authentication into its own service with cross-service sessions, built multi-perspective certificate validation (MPIC) with quorum across vantage points, and designed the API servers, async workers, and audit pipelines around them."
       - "Performance at scale: cut backend latency up to 5× and fixed slow API paths by eliminating N+1 queries, a hot-path regex, and a write storm, and by reworking batch polling into per-record jobs."
       - "Correctness in money and state: idempotent billing, atomic multi-step writes, and APIs that stay backward-compatible as they grow."
-      - "Fraud, security & abuse: shut down months-long attacker reconnaissance before exploitation; closed account-takeover, second-factor-bypass, and invitation-abuse paths; bot defense at 1,000+ fake signups/day incl. CAPTCHA-farm countermeasures; stopped a four-figure-per-day SMS pumping attack in 4 days ($0 losses since); and defeated a persistent session hijacker."
+      - "Fraud, security & abuse: shut down months-long attacker reconnaissance before exploitation; closed account-takeover, second-factor-bypass, and invitation-abuse paths; bot defense at 1,000+ fake signups/day incl. CAPTCHA-farm countermeasures; stopped a four-figure-per-day SMS pumping attack in 4 days; and defeated a persistent session hijacker."
       - "Also built insider-threat and identity-theft detection, pairing LLM-augmented pattern matching with human-led forensics to go from detection to mitigation in minutes, not days."
     stack: [Ruby on Rails, PostgreSQL, Redis, OAuth2, OIDC, SAML, PKI, Sidekiq, AWS]
 
   - company: Midstay
     role: Software Engineer
     period: Nov 2022 - Jan 2024
+    start_date: "2022-11"
+    end_date: "2024-01"
     location: Remote · early engineer, 5-person team, ~1k DAU
     summary: >-
       Early engineer on a 5-person team building a consumer product with ~1k DAU
@@ -216,6 +223,8 @@ work:
   - company: Private Trading Firm
     role: Quantitative Trading Operations
     period: Mar 2020 - May 2021
+    start_date: "2020-03"
+    end_date: "2021-05"
     location: Built and managed automated hedging across brokers, markets, and instruments
     summary: >-
       Built and managed automated hedging strategies across multiple brokers, markets, and
@@ -235,20 +244,20 @@ work:
 metrics:
   canonical:
     - value: "10×"
-      label: "issuance scale as sole architect"
+      label: "core business scale as sole architect"
     - value: "5×"
       label: "backend latency reduction"
     - value: "14"
-      label: "gems published, 50k+ downloads"
-    - value: "$0"
-      label: "fraud losses since"
+      label: "gems published, 60k+ downloads"
+    - value: "Top-10"
+      label: "global certificate authority"
   security:
     - value: "4 days"
       label: "to kill a high-cost SMS fraud attack"
     - value: "1k+/day"
       label: "bot accounts detected and blocked"
-    - value: "$0"
-      label: "fraud losses since"
+    - value: "Minutes"
+      label: "from detection to mitigation"
     - value: "Top-10"
       label: "global certificate authority"
   product:
@@ -271,7 +280,7 @@ metrics:
       label: "finance + engineering"
   services:
     - value: "10×"
-      label: "growth handled as sole architect"
+      label: "core business scale as sole architect"
     - value: "5×"
       label: "faster backend after my fixes"
     - value: "Fixed"
@@ -280,7 +289,7 @@ metrics:
       label: "code, accounts, and credentials"
   bigtech:
     - value: "10×"
-      label: "system scale growth"
+      label: "core business scale"
     - value: "10k+"
       label: "auth engine DAU"
     - value: "Distributed"
@@ -413,6 +422,44 @@ process:
     body: >-
       Setup notes, a runbook for when something breaks, and a fix window after launch
       included in every quote.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Advisory - hiring me as an advisor or consultant. Rendered by
+# _includes/advisory.html on the canonical and services pages.
+# ─────────────────────────────────────────────────────────────────────────────
+advisory:
+  areas:
+    - title: Architecture reviews
+      body: >-
+        A second opinion on a design before you build it, or on a system that is
+        starting to struggle under load.
+    - title: Security and fraud
+      body: >-
+        A review of your login, account recovery, and payment flows, and a plan to stop
+        fake signups, account takeover, and abuse.
+    - title: Authentication and identity
+      body: >-
+        Choosing and rolling out SSO, OAuth, passkeys, and 2FA without locking out your
+        real users.
+    - title: PKI and certificates
+      body: >-
+        Certificate lifecycle, automation, and what new browser and industry rules mean
+        for your systems.
+    - title: Performance and scale
+      body: >-
+        Finding out why the app is slow, what to fix first, and what will break at the
+        next 10x.
+    - title: AI in your workflows
+      body: >-
+        Where LLMs and AI agents can save your team time, and how to connect them to your
+        systems safely.
+  formats:
+    - title: One-off review
+      body: A written report with what I found, why it matters, and what to do next.
+    - title: Monthly advisory
+      body: Regular calls with your team, plus questions by email or Slack between calls.
+    - title: Hands-on help
+      body: I work with your engineers on the fix, not only on the report.
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Resume PDFs - picker shows all five.

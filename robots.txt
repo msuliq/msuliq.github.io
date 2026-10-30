@@ -1,4 +1,22 @@
+# Everything on this site may be crawled, read, and downloaded, by search
+# engines and AI agents alike. A plain-text profile for AI agents lives at
+# https://msuliq.github.io/llms.txt (full version: /llms-full.txt, JSON
+# Resume: /profile.json). Resume PDFs are under /resumes/.
+
 User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://msuliq.github.io/sitemap.xml

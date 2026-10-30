@@ -1,0 +1,49 @@
+{%- comment -%}
+  Advisor / consultant section. Reads site.data.site.advisory:
+  areas (title, body) as a card grid and formats (title, body) as a
+  short list of ways to work together.
+{%- endcomment -%}
+
+<section id="advisory" class="container-narrow section">
+  <div class="max-w-prose mb-10">
+    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Advisory</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+      Hire me as an advisor or consultant.
+    </h2>
+    <p class="text-muted leading-relaxed">
+      Not every problem needs a full project. Sometimes your team needs a senior engineer
+      to look at the plan, point out the risks, and say what to do next.
+    </p>
+  </div>
+
+  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+    {%- for a in site.data.site.advisory.areas -%}
+    <li class="rounded-xl border border-hairline bg-surface p-6">
+      <h3 class="text-base sm:text-lg font-semibold text-ink mb-2">{{ a.title }}</h3>
+      <p class="text-sm text-muted leading-relaxed">{{ a.body }}</p>
+    </li>
+    {%- endfor -%}
+  </ul>
+
+  <h3 class="text-lg font-semibold text-ink mb-4">Ways to work together</h3>
+  <ul class="divide-y divide-hairline border-y border-hairline mb-8">
+    {%- for f in site.data.site.advisory.formats -%}
+    <li class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-1 md:gap-6 py-4">
+      <p class="text-sm font-mono text-muted uppercase tracking-wider">{{ f.title }}</p>
+      <p class="text-ink leading-relaxed">{{ f.body }}</p>
+    </li>
+    {%- endfor -%}
+  </ul>
+
+  <a
+    href="{{ site.data.site.contact.booking_url }}"
+    target="_blank"
+    rel="noopener"
+    class="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white no-underline hover:bg-accent-hover transition-colors"
+    data-track="calendly_click"
+    data-track-label="book_advisory"
+    data-track-location="advisory">
+    {% include icons/calendar.html size="h-4 w-4" %}
+    Book a call about advisory work
+  </a>
+</section>

@@ -7,6 +7,12 @@
     <p class="text-sm text-muted">
       &copy; {{ 'now' | date: '%Y' }} {{ site.data.site.author.name }}.
       Built with Jekyll &amp; Tailwind. Hosted on GitHub Pages.
+      <span class="block mt-1">
+        For AI agents:
+        <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a> ·
+        <a href="{{ '/llms-full.txt' | relative_url }}">full profile</a> ·
+        <a href="{{ '/profile.json' | relative_url }}">profile.json</a>
+      </span>
     </p>
 
     <ul class="flex items-center gap-4">

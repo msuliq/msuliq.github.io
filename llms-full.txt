@@ -1,0 +1,94 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+{%- assign d = site.data.site -%}
+# {{ d.author.name }}
+
+{{ d.author.long_title }}
+
+- Location: {{ d.author.location }} ({{ d.author.timezone }}), remote
+- Open to: {{ d.author.open_to }}, plus freelance projects, advisory, and consulting
+- Website: {{ '/' | absolute_url }}
+- Email: {{ d.contact.agent_email }}
+- Book a call: {{ d.contact.booking_url }}
+- Structured version of this file: {{ '/profile.json' | absolute_url }}
+
+## Summary
+
+{{ site.description | strip_newlines }}
+
+Writing software since 2014, shipping production systems since 2022. Before engineering: quantitative trading and five years of government relations at an oil major.
+
+## Experience
+{% for role in d.work %}
+### {{ role.role }}, {{ role.company }} ({{ role.period }})
+
+{{ role.location }}
+
+{{ role.summary | strip_newlines }}
+{% for h in role.highlights %}
+- {{ h }}
+{%- endfor %}
+
+Stack: {{ role.stack | join: ", " }}
+{% endfor %}
+## Freelance services
+
+Integrations, internal tools, authentication, and AI workflows for support and ops teams. Custom code, fixed price per project. Details: {{ '/services.html' | absolute_url }}
+{% for s in d.services %}
+### {{ s.title }}
+
+{{ s.body | strip_newlines }}
+{% endfor %}
+## Case studies
+
+Client and employer names are left out on purpose.
+{% for c in d.case_studies %}
+### {{ c.title }}
+
+Context: {{ c.context }}
+
+{{ c.body | strip_newlines }}
+
+Stack: {{ c.stack | join: ", " }}
+{% endfor %}
+## How a project works
+{% for p in d.process %}
+{{ forloop.index }}. {{ p.step }}: {{ p.body | strip_newlines }}
+{%- endfor %}
+
+## Advisory and consulting
+{% for a in d.advisory.areas %}
+- {{ a.title }}: {{ a.body | strip_newlines }}
+{%- endfor %}
+
+Ways to work together:
+{% for f in d.advisory.formats %}
+- {{ f.title }}: {{ f.body }}
+{%- endfor %}
+
+## Open source
+{% for p in d.open_source %}
+- {{ p.name }} ({{ p.language }}): {{ p.description | strip_newlines }} https://github.com/{{ p.repo }}
+{%- endfor %}
+
+## Writing
+{% for w in d.writing %}
+- {{ w.title }} ({{ w.tag }}): {{ w.summary | strip_newlines }} {{ w.url }}
+{%- endfor %}
+
+## Skills
+{% for g in d.tech_stack %}
+- {{ g.category }}: {{ g.items | join: ", " }}
+{%- endfor %}
+
+## Resumes (PDF)
+{% for r in d.resumes %}
+- {{ r.label }}: {{ r.file | absolute_url }}
+{%- endfor %}
+
+## Profiles
+{% for s in d.social %}
+- {{ s.name }}: {{ s.url }}
+{%- endfor %}

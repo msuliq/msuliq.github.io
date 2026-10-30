@@ -46,6 +46,11 @@
 <link rel="apple-touch-icon" href="{{ '/images/m192.png' | relative_url }}">
 <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
+<!-- Machine-readable versions for AI agents and crawlers -->
+<link rel="alternate" type="text/plain" href="{{ '/llms.txt' | absolute_url }}" title="Profile for AI agents (llms.txt)">
+<link rel="alternate" type="text/plain" href="{{ '/llms-full.txt' | absolute_url }}" title="Full profile in plain text">
+<link rel="alternate" type="application/json" href="{{ '/profile.json' | absolute_url }}" title="Profile in JSON Resume format">
+
 <!-- Performance: warm up the analytics origins so the first request is faster -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
@@ -71,10 +76,14 @@
 <!-- Compiled Tailwind output -->
 <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
 
-<!-- JSON-LD: Person schema for Google knowledge panel + rich results -->
+<!-- JSON-LD: ProfilePage wrapping a Person, for search rich results and agents -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "{{ page_url }}",
+  "dateModified": "{{ site.time | date_to_xmlschema }}",
+  "mainEntity": {
   "@type": "Person",
   "name": "{{ site.data.site.author.name }}",
   "givenName": "Suleyman",
@@ -116,7 +125,24 @@
     {%- for s in site.data.site.social -%}
     "{{ s.url }}"{% unless forloop.index0 == last %},{% endunless %}
     {%- endfor -%}
+  ],
+  "subjectOf": [
+    {%- for r in site.data.site.resumes %}
+    {
+      "@type": "DigitalDocument",
+      "name": "{{ r.label }} resume",
+      "encodingFormat": "application/pdf",
+      "url": "{{ r.file | absolute_url }}"
+    },
+    {%- endfor %}
+    {
+      "@type": "Dataset",
+      "name": "Profile in JSON Resume format",
+      "encodingFormat": "application/json",
+      "url": "{{ '/profile.json' | absolute_url }}"
+    }
   ]
+  }
 }
 </script>
 

@@ -1,0 +1,85 @@
+---
+layout: null
+permalink: /profile.json
+---
+{%- assign d = site.data.site -%}
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": {{ d.author.name | jsonify }},
+    "label": {{ d.author.long_title | jsonify }},
+    "email": {{ d.contact.agent_email | jsonify }},
+    "url": {{ '/' | absolute_url | jsonify }},
+    "summary": {{ site.description | strip_newlines | jsonify }},
+    "location": {
+      "city": "Ashgabat",
+      "countryCode": "TM"
+    },
+    "profiles": [
+      {%- for s in d.social %}
+      {
+        "network": {{ s.name | jsonify }},
+        "url": {{ s.url | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  },
+  "work": [
+    {%- for role in d.work %}
+    {
+      "name": {{ role.company | jsonify }},
+      "position": {{ role.role | jsonify }},
+      "startDate": {{ role.start_date | jsonify }},
+      {%- if role.end_date %}
+      "endDate": {{ role.end_date | jsonify }},
+      {%- endif %}
+      "summary": {{ role.summary | strip_newlines | jsonify }},
+      "highlights": {{ role.highlights | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "skills": [
+    {%- for g in d.tech_stack %}
+    {
+      "name": {{ g.category | jsonify }},
+      "keywords": {{ g.items | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "projects": [
+    {%- for p in d.open_source %}
+    {
+      "name": {{ p.name | jsonify }},
+      "description": {{ p.description | strip_newlines | jsonify }},
+      "url": {{ p.repo | prepend: "https://github.com/" | jsonify }},
+      "keywords": [{{ p.language | jsonify }}]
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "publications": [
+    {%- for w in d.writing %}
+    {
+      "name": {{ w.title | jsonify }},
+      "publisher": "Medium",
+      "url": {{ w.url | jsonify }},
+      "summary": {{ w.summary | strip_newlines | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "services": {{ d.services | jsonify }},
+  "caseStudies": {{ d.case_studies | jsonify }},
+  "advisory": {{ d.advisory | jsonify }},
+  "files": [
+    {%- for r in d.resumes %}
+    {
+      "name": {{ r.label | append: " resume" | jsonify }},
+      "type": "application/pdf",
+      "url": {{ r.file | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "meta": {
+    "canonical": {{ '/profile.json' | absolute_url | jsonify }},
+    "lastModified": {{ site.time | date_to_xmlschema | jsonify }}
+  }
+}
