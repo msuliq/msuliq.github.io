@@ -13,14 +13,11 @@ author:
   name: Suleyman Musayev
   short_title: Senior Staff Engineer
   long_title: Senior Staff Engineer · Distributed Systems, Scale, Cryptography, Security
-  location: Ashgabat, Turkmenistan
   timezone: UTC+5
   remote: true
-  visa_required: true
   open_to: Senior/Staff Backend, Distributed Systems, Platform, and Security Engineering roles
   default_badges:
-    - "Remote · global"
-    - "Open to relocation · visa sponsorship"
+    - "Overlaps with US and EU hours"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Contact
@@ -110,6 +107,62 @@ open_source:
 # Writing - Medium articles, blog posts, talks.
 # ─────────────────────────────────────────────────────────────────────────────
 writing:
+  - title: Rendering User-Supplied SVG Without Getting Burned
+    url: https://msuliq.medium.com/rendering-user-supplied-svg-without-getting-burned-f0e78d2172f8
+    summary: >-
+      An SVG is not an image, it is a program the browser runs. What can hide in an
+      uploaded avatar or logo, and a small gem that finds it or cleans it out.
+      Companion to svg_sentinel.
+    tag: Security
+  - title: "Memory-Hard Password Hashing in Ruby: Balloon and yescrypt"
+    url: https://msuliq.medium.com/memory-hard-password-hashing-in-ruby-balloon-and-yescrypt-bf928bd58452
+    summary: >-
+      Being slow is no longer enough against GPU farms. A password hash also has to be
+      expensive to remember. Two ways to do that in Ruby, and when to use each.
+    tag: Cryptography
+  - title: The Attacker Doesn't Need to Know Your Programming Language Anymore
+    url: https://msuliq.medium.com/the-attacker-doesnt-need-to-know-your-programming-language-anymore-21b451abbb41
+    summary: >-
+      LLMs did not make attackers smarter, they made them cheaper. What your front end
+      tells the world, and why reading it just got easy.
+    tag: Security
+  - title: Adding OpenID Connect Login to Rails Without the Dependency Pile
+    url: https://msuliq.medium.com/adding-openid-connect-login-to-rails-without-the-dependency-pile-f8bfffd38e89
+    summary: >-
+      How OpenID Connect actually works, and two small Ruby gems that add "log in with
+      your work account" to Rails with almost no dependencies.
+    tag: Authentication
+  - title: The Attacker Filed a Support Ticket
+    url: https://msuliq.medium.com/the-attacker-filed-a-support-ticket-8939e632046d
+    summary: >-
+      Some complaints are not feedback. They are an attack on the people who can turn
+      your defenses off. How to tell a real complaint from a paid one.
+    tag: Fraud
+  - title: "Post-Quantum Cryptography Is Here: What FIPS 203, 204, and 205 Mean for Engineers"
+    url: https://msuliq.medium.com/post-quantum-cryptography-is-here-what-fips-203-204-and-205-mean-for-engineers-75c1293e2175
+    summary: >-
+      The post-quantum standards are official. The short, practical version of what
+      changed and what engineers should do about it, with no lattice math.
+    tag: Cryptography
+  - title: Bringing a Post-Quantum Signature into Ruby
+    url: https://msuliq.medium.com/bringing-a-post-quantum-signature-into-ruby-47878d6bb166
+    summary: >-
+      NIST finalized ML-DSA in 2024, but Ruby had no easy way to use it. So I wrapped
+      it, and the wrapping is where the interesting engineering lives. Companion to
+      ml_dsa.
+    tag: Cryptography
+  - title: 300 Fake Signups a Day, and the CAPTCHA Was Losing
+    url: https://msuliq.medium.com/300-fake-signups-a-day-and-the-captcha-was-losing-5d6d3d8a4802
+    summary: >-
+      Bots do not solve CAPTCHAs anymore, people do. What it takes to defend a signup
+      flow when the attacker's economics beat yours.
+    tag: Fraud
+  - title: Post-Quantum Keys Don't Need OpenSSL
+    url: https://msuliq.medium.com/post-quantum-keys-dont-need-openssl-54077ef35688
+    summary: >-
+      Why save a quantum-proof key through the biggest classical crypto library? A
+      small C codec that cuts the cord, and how little ASN.1 you actually need.
+    tag: Cryptography
   - title: How I Parse Domain Names For a Certificate Authority
     url: https://msuliq.medium.com/how-i-parse-domain-names-for-a-certificate-authority-92a940f32bea
     summary: >-
@@ -143,13 +196,13 @@ writing:
     summary: >-
       Practical playbook for detecting and shutting down SMS pumping attacks,
       drawn from production experience defending a global PKI vendor.
-    tag: Security
+    tag: Fraud
   - title: Authenticating with OmniAuth and OpenID Connect (OIDC) in Rails
     url: https://msuliq.medium.com/authenticating-with-omniauth-and-openid-connect-oidc-in-ruby-on-rails-applications-e136ec5b48c0
     summary: >-
       Step-by-step guide to wiring OIDC authentication into a Ruby on Rails
       application using the omniauth_oidc gem.
-    tag: Engineering
+    tag: Authentication
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Tech stack - surfaced as a grid for recruiter SEO and quick scanning.
@@ -462,23 +515,28 @@ advisory:
       body: I work with your engineers on the fix, not only on the report.
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Resume PDFs - picker shows all five.
+# Resume PDFs - each page offers only the resume matching its variant
+# (_includes/resume_picker.html). Labels are neutral because they also
+# appear in llms.txt, profile.json, and JSON-LD. Bump resume_updated
+# whenever the PDFs are regenerated.
 # ─────────────────────────────────────────────────────────────────────────────
+resume_updated: October 2026
+resume_download_name: Suleyman_Musayev_Resume.pdf
 resumes:
   - variant: canonical
-    label: "Canonical"
+    label: "General"
     file: /resumes/resume_suleyman_musayev.pdf
   - variant: security
-    label: "Fraud & Abuse"
+    label: "Security and fraud"
     file: /resumes/resume_suleyman_musayev_security.pdf
   - variant: product
-    label: "Product"
+    label: "Product engineering"
     file: /resumes/resume_suleyman_musayev_product.pdf
   - variant: startup
-    label: "Startup"
+    label: "Early-stage teams"
     file: /resumes/resume_suleyman_musayev_startup.pdf
   - variant: bigtech
-    label: "Big Tech"
+    label: "Distributed systems and scale"
     file: /resumes/resume_suleyman_musayev_bigtech.pdf
 
 # ─────────────────────────────────────────────────────────────────────────────

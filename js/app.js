@@ -162,6 +162,8 @@
   // success we reveal the badge. On failure (rate limit, network) we
   // simply leave it hidden - graceful degradation.
   var STARS_TTL_MS = 60 * 60 * 1000; // 1 hour
+  // Below this, a star badge hurts more than it helps, so it stays hidden.
+  var STARS_MIN_SHOWN = 10;
   document.querySelectorAll('[data-stars-for]').forEach(function (el) {
     var repo = el.getAttribute('data-stars-for');
     if (!repo) return;
@@ -196,6 +198,7 @@
   });
 
   function showStars(el, count) {
+    if (count < STARS_MIN_SHOWN) return;
     var span = el.querySelector('.stars-count');
     if (span) span.textContent = formatStars(count);
     el.classList.remove('hidden');

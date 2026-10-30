@@ -7,8 +7,8 @@ permalink: /llms-full.txt
 
 {{ d.author.long_title }}
 
-- Location: {{ d.author.location }} ({{ d.author.timezone }}), remote
-- Open to: {{ d.author.open_to }}, plus freelance projects, advisory, and consulting
+- Location: remote, {{ d.author.timezone }}
+- Available for: advisory, consulting, and freelance projects. Also open to {{ d.author.open_to }}
 - Website: {{ '/' | absolute_url }}
 - Email: {{ d.contact.agent_email }}
 - Book a call: {{ d.contact.booking_url }}

@@ -5,7 +5,7 @@ permalink: /llms.txt
 {%- assign d = site.data.site -%}
 # {{ d.author.name }}
 
-> {{ d.author.short_title }} at SSL.com, a top-10 global certificate authority. Backend and distributed systems, authentication and identity, cryptography and PKI, and fraud and abuse defense. Available for freelance projects, advisory, and consulting. Remote, based in {{ d.author.location }} ({{ d.author.timezone }}).
+> {{ d.author.short_title }} at SSL.com, a top-10 global certificate authority. Backend and distributed systems, authentication and identity, cryptography and PKI, and fraud and abuse defense. Available for advisory, consulting, and freelance projects. Remote, {{ d.author.timezone }}.
 
 This file is for AI agents and crawlers. Everything on this site may be read, quoted, and downloaded. The full profile is in one plain-text file and one JSON file, linked below.
 
@@ -16,7 +16,7 @@ This file is for AI agents and crawlers. Everything on this site may be read, qu
 
 ## Pages
 
-- [Main profile]({{ '/' | absolute_url }}): senior staff engineer, backend and distributed systems
+- [Main profile]({{ '/' | absolute_url }}): advisory and consulting on architecture, security, authentication, and scale
 - [Integrations and internal tools]({{ '/services.html' | absolute_url }}): freelance work for support and ops teams, with case studies and process
 - [Fraud and abuse engineering]({{ '/security.html' | absolute_url }}): security-focused version of the profile
 - [Distributed systems and scale]({{ '/bigtech.html' | absolute_url }}): large-company version of the profile

@@ -4,8 +4,9 @@
     page.headline   - main H1 (defaults to site author short_title)
     page.tagline    - one-line subhead under name
     page.summary    - 1-2 short paragraphs
-    page.badges     - plain availability badges after location (defaults
-                      to site author default_badges)
+    page.availability - text of the green status badge (default "Available now")
+    page.badges     - plain badges after the timezone badge (defaults to
+                      site author default_badges)
   Falls back to canonical defaults so any variant page can omit any field.
 {%- endcomment -%}
 
@@ -34,8 +35,20 @@
         <p class="text-sm font-mono text-muted uppercase tracking-wider">
           {{ site.data.site.author.name }}
         </p>
+        {%- comment -%}
+          A headline written as "Title · Focus" renders on two lines, the focus
+          lighter and smaller, so the dot never dangles at a line end.
+        {%- endcomment -%}
+        {%- assign headline_parts = headline | split: " · " -%}
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight">
-          {{ headline }}
+          {{ headline_parts.first }}
+          {%- if headline_parts.size > 1 %}
+          <span class="block mt-1 text-2xl sm:text-3xl lg:text-4xl font-medium text-muted">
+            {%- for part in headline_parts offset: 1 -%}
+            {{ part }}{% unless forloop.last %} · {% endunless %}
+            {%- endfor -%}
+          </span>
+          {%- endif %}
         </h1>
         <p class="text-base sm:text-lg text-muted leading-relaxed max-w-prose">
           {{ tagline }}
@@ -46,11 +59,11 @@
       <ul class="flex flex-wrap gap-2 text-xs sm:text-sm">
         <li class="inline-flex items-center gap-1.5 rounded-full bg-success/10 text-success px-3 py-1 font-medium">
           <span class="h-1.5 w-1.5 rounded-full bg-success animate-pulse"></span>
-          Available now
+          {{ page.availability | default: "Available now" }}
         </li>
         <li class="inline-flex items-center gap-1.5 rounded-full bg-elevated text-muted px-3 py-1">
           {% include icons/location.html size="h-3.5 w-3.5" %}
-          {{ site.data.site.author.location }} ({{ site.data.site.author.timezone }})
+          Remote · {{ site.data.site.author.timezone }}
         </li>
         {%- assign badges = page.badges | default: site.data.site.author.default_badges -%}
         {%- for badge in badges %}

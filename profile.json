@@ -11,10 +11,6 @@ permalink: /profile.json
     "email": {{ d.contact.agent_email | jsonify }},
     "url": {{ '/' | absolute_url | jsonify }},
     "summary": {{ site.description | strip_newlines | jsonify }},
-    "location": {
-      "city": "Ashgabat",
-      "countryCode": "TM"
-    },
     "profiles": [
       {%- for s in d.social %}
       {
