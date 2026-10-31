@@ -35,7 +35,7 @@ Stack: {{ role.stack | join: ", " }}
 {% endfor %}
 ## Freelance services
 
-Integrations, internal tools, authentication, and AI workflows for support and ops teams. Custom code, fixed price per project. Details: {{ '/services.html' | absolute_url }}
+Integrations, internal tools, authentication, and in-house AI models for support and ops teams. Custom code, fixed price per project. Details: {{ '/services.html' | absolute_url }}
 {% for s in d.services %}
 ### {{ s.title }}
 

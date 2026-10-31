@@ -216,8 +216,8 @@ tech_stack:
     items: [Hotwire, Turbo, Stimulus, React, Tailwind CSS, htmx]
   - category: Integrations
     items: [Intercom, Slack, Salesforce, Stripe, Webhooks, REST API Clients & Servers, OAuth Provider & Client, OpenAPI, Amazon SES, LinkedIn API]
-  - category: AI & Automation
-    items: [MCP Servers, Claude Code Plugins, LLM Triage & Summarization, LLM Evals]
+  - category: AI & Models
+    items: [PyTorch, Hugging Face, LoRA Fine-Tuning, vLLM, llama.cpp, Self-Hosted LLMs, Model Debugging, LLM Evals, MCP Servers]
   - category: Data
     items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
   - category: Auth & Identity
@@ -361,6 +361,13 @@ services:
       Conversations tagged and routed on arrival, account and billing context pulled
       into the inbox so agents stop switching tabs, escalations posted to the right
       Slack channel, and SLA risks flagged before they turn into churn.
+  - title: In-house AI models
+    body: >-
+      AI that runs on your own servers, so customer data never goes to a third-party AI
+      provider. That matters for security, for your customers' privacy, and for rules
+      like GDPR, HIPAA, and the data residency terms in your contracts. I fine-tune
+      lightweight open-source models into experts on your subject, connect them to your
+      internal tools, and debug them when the answers go wrong.
   - title: Integrations and two-way syncs
     body: >-
       Intercom, Salesforce, Stripe, Slack, your own app, or any REST API. Verified
@@ -385,11 +392,6 @@ services:
     body: >-
       The numbers someone assembles by hand every Monday, live on one screen, plus
       scheduled digests to Slack or email.
-  - title: AI-assisted workflows
-    body: >-
-      LLM triage, summaries, and draft replies your team approves before anything is
-      sent. MCP servers and Claude plugins that let AI assistants work with your
-      internal systems under scoped, revocable permissions.
   - title: Security built in, not bolted on
     body: >-
       My background is security engineering. Least-privilege API scopes, secrets kept
@@ -397,6 +399,14 @@ services:
       tools touch customer data.
 
 case_studies:
+  - title: Subject-expert AI on modest hardware
+    context: In-house AI, self-hosted
+    body: >-
+      Lightweight open-source models fine-tuned into experts in one specific field, so
+      they run in house on modest hardware instead of an expensive general model. Tuned
+      the output language so answers read naturally to customers and improve their
+      experience.
+    stack: [PyTorch, Hugging Face, LoRA, vLLM, llama.cpp]
   - title: Company-wide authentication platform
     context: Top-10 global certificate authority
     body: >-
@@ -482,6 +492,11 @@ process:
 # ─────────────────────────────────────────────────────────────────────────────
 advisory:
   areas:
+    - title: In-house AI models
+      body: >-
+        Running AI on your own infrastructure instead of sending data to an outside
+        provider, for security, privacy, and compliance. Choosing the model, fine-tuning
+        it, debugging it, and connecting it to your systems.
     - title: APIs and integrations
       body: >-
         How your systems should talk to each other: API design, connecting tools like
@@ -502,10 +517,6 @@ advisory:
       body: >-
         Finding out why the app is slow, what to fix first, and what will break at the
         next 10x.
-    - title: AI in your workflows
-      body: >-
-        Where LLMs and AI agents can save your team time, and how to connect them to your
-        systems safely.
   formats:
     - title: One-off review
       body: A written report with what I found, why it matters, and what to do next.

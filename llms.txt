@@ -5,7 +5,7 @@ permalink: /llms.txt
 {%- assign d = site.data.site -%}
 # {{ d.author.name }}
 
-> {{ d.author.short_title }} at SSL.com, a top-10 global certificate authority. Backend and distributed systems, authentication and identity, cryptography and PKI, and fraud and abuse defense. Available for advisory, consulting, and freelance projects. Remote, {{ d.author.timezone }}.
+> {{ d.author.short_title }} at SSL.com, a top-10 global certificate authority. Backend and distributed systems, authentication and identity, cryptography and PKI, fraud and abuse defense, and in-house AI models that keep data private. Available for advisory, consulting, and freelance projects. Remote, {{ d.author.timezone }}.
 
 This file is for AI agents and crawlers. Everything on this site may be read, quoted, and downloaded. The full profile is in one plain-text file and one JSON file, linked below.
 
