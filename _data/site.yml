@@ -217,7 +217,7 @@ tech_stack:
   - category: Integrations
     items: [Intercom, Slack, Salesforce, Stripe, Webhooks, REST API Clients & Servers, OAuth Provider & Client, OpenAPI, Amazon SES, LinkedIn API]
   - category: AI & Models
-    items: [PyTorch, Hugging Face, LoRA Fine-Tuning, vLLM, llama.cpp, Self-Hosted LLMs, Model Debugging, LLM Evals, MCP Servers]
+    items: [PyTorch, Hugging Face, LoRA Fine-Tuning, IBM Granite, vLLM, llama.cpp, Self-Hosted LLMs, Model Debugging, LLM Evals, MCP Servers]
   - category: Data
     items: [PostgreSQL, Redis, Elasticsearch, Sidekiq, Kafka]
   - category: Auth & Identity
@@ -253,6 +253,7 @@ work:
       - "Correctness in money and state: idempotent billing, atomic multi-step writes, and APIs that stay backward-compatible as they grow."
       - "Fraud, security & abuse: shut down months-long attacker reconnaissance before exploitation; closed account-takeover, second-factor-bypass, and invitation-abuse paths; bot defense at 1,000+ fake signups/day incl. CAPTCHA-farm countermeasures; stopped a four-figure-per-day SMS pumping attack in 4 days; and defeated a persistent session hijacker."
       - "Also built insider-threat and identity-theft detection, pairing LLM-augmented pattern matching with human-led forensics to go from detection to mitigation in minutes, not days."
+      - "Lead and mentor the engineers on the platform, and work directly with sales and prospective clients on technical pitches and integration deep-dives, translating architecture into terms a buyer's engineering team can act on."
     stack: [Ruby on Rails, PostgreSQL, Redis, OAuth2, OIDC, SAML, PKI, Sidekiq, AWS]
 
   - company: Midstay
@@ -342,11 +343,12 @@ case_studies:
   - title: Subject-expert AI on modest hardware
     context: In-house AI, self-hosted
     body: >-
-      Lightweight open-source models fine-tuned into experts in one specific field, so
-      they run in house on modest hardware instead of an expensive general model. Tuned
-      the output language so answers read naturally to customers and improve their
-      experience.
-    stack: [PyTorch, Hugging Face, LoRA, vLLM, llama.cpp]
+      Lightweight open-source models - including IBM's Granite 4.2 and other
+      open-weight models in that size class - fine-tuned into experts in one
+      specific field, so they run on-prem on modest hardware instead of an
+      expensive general model. Tuned the output language so answers read
+      naturally to customers and improve their experience.
+    stack: [PyTorch, Hugging Face, LoRA, IBM Granite, vLLM, llama.cpp]
   - title: Company-wide authentication platform
     context: Top-10 global certificate authority
     body: >-
