@@ -2,7 +2,7 @@
  * msuliq.github.io - client script
  *
  * Responsibilities:
- *   - Theme toggle (dark default, persisted in localStorage)
+ *   - Theme toggle (follows OS, dark fallback, choice persisted in localStorage)
  *   - Email obfuscation (assemble mailto on click; never in HTML source)
  *   - GA4 event tracking via data-track attributes (delegated)
  *   - Scroll-depth tracking (25/50/75/100, fired once each)
@@ -41,23 +41,39 @@
   } catch (e) {}
 
   // ─── Theme toggle ────────────────────────────────────────────────────────
-  // The initial theme is set inline in <head> before paint to avoid FOUC.
-  // This handler only flips it on user interaction.
+  // The initial theme is set inline in <head> before paint to avoid FOUC:
+  // saved choice, else the OS preference, else dark. Until the visitor
+  // toggles, the page keeps following OS changes live.
+  var html = document.documentElement;
+
+  function hasStoredTheme() {
+    try {
+      var t = localStorage.getItem('theme');
+      return t === 'light' || t === 'dark';
+    } catch (e) { return false; }
+  }
+
   var toggle = document.getElementById('theme-toggle');
   if (toggle) {
     toggle.addEventListener('click', function () {
-      var html = document.documentElement;
-      var isDark = html.classList.contains('dark');
-      if (isDark) {
-        html.classList.remove('dark');
-        try { localStorage.setItem('theme', 'light'); } catch (e) {}
-        track('theme_toggle', { theme: 'light' });
-      } else {
-        html.classList.add('dark');
-        try { localStorage.setItem('theme', 'dark'); } catch (e) {}
-        track('theme_toggle', { theme: 'dark' });
-      }
+      var next = html.classList.contains('dark') ? 'light' : 'dark';
+      html.classList.toggle('dark', next === 'dark');
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      track('theme_toggle', { theme: next });
     });
+  }
+
+  if (window.matchMedia) {
+    var lightQuery = window.matchMedia('(prefers-color-scheme: light)');
+    var onSystemChange = function (e) {
+      if (hasStoredTheme()) return;
+      html.classList.toggle('dark', !e.matches);
+    };
+    if (lightQuery.addEventListener) {
+      lightQuery.addEventListener('change', onSystemChange);
+    } else if (lightQuery.addListener) {
+      lightQuery.addListener(onSystemChange); // Safari < 14
+    }
   }
 
   // ─── Email obfuscation ───────────────────────────────────────────────────

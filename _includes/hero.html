@@ -1,119 +1,73 @@
 {%- comment -%}
-  Hero.
+  Hero: small avatar, name, headline, tagline, one muted line of status,
+  and plain contact links.
   Per-page values come from front matter:
-    page.headline   - main H1 (defaults to site author short_title)
-    page.tagline    - one-line subhead under name
-    page.summary    - 1-2 short paragraphs
-    page.availability - text of the green status badge (default "Available now")
-    page.badges     - plain badges after the timezone badge (defaults to
-                      site author default_badges)
+    page.headline     - line under the name (defaults to author long_title)
+    page.tagline      - short intro paragraph
+    page.availability - status text (default "Available now")
+    page.badges       - extra status facts (defaults to author default_badges)
   Falls back to canonical defaults so any variant page can omit any field.
 {%- endcomment -%}
 
 {%- assign headline = page.headline | default: site.data.site.author.long_title -%}
 {%- assign tagline  = page.tagline  | default: "I design and scale the systems behind a top-10 certificate authority: distributed services, performance, cryptography, and fraud and abuse defense. Open to senior/staff engineering roles." -%}
+{%- assign badges   = page.badges | default: site.data.site.author.default_badges -%}
 
-<section class="container-narrow pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-14">
-  <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-10 items-start">
-
-    {%- comment -%} Headshot {%- endcomment -%}
-    <div class="order-1 md:order-none">
-      <img
-        src="{{ '/images/01.jpg' | relative_url }}"
-        alt="Portrait of {{ site.data.site.author.name }}"
-        width="200"
-        height="200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        class="h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 rounded-2xl object-cover ring-1 ring-hairline shadow-sm">
-    </div>
-
-    {%- comment -%} Name + tagline + summary + CTAs {%- endcomment -%}
-    <div class="space-y-5">
-      <div class="space-y-2">
-        <p class="text-sm font-mono text-muted uppercase tracking-wider">
-          {{ site.data.site.author.name }}
-        </p>
-        {%- comment -%}
-          A headline written as "Title · Focus" renders on two lines, the focus
-          lighter and smaller, so the dot never dangles at a line end.
-        {%- endcomment -%}
-        {%- assign headline_parts = headline | split: " · " -%}
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight">
-          {{ headline_parts.first }}
-          {%- if headline_parts.size > 1 %}
-          <span class="block mt-1 text-2xl sm:text-3xl lg:text-4xl font-medium text-muted">
-            {%- for part in headline_parts offset: 1 -%}
-            {{ part }}{% unless forloop.last %} · {% endunless %}
-            {%- endfor -%}
-          </span>
-          {%- endif %}
-        </h1>
-        <p class="text-base sm:text-lg text-muted leading-relaxed max-w-prose">
-          {{ tagline }}
-        </p>
-      </div>
-
-      {%- comment -%} Availability badges - concrete, scannable signals {%- endcomment -%}
-      <ul class="flex flex-wrap gap-2 text-xs sm:text-sm">
-        <li class="inline-flex items-center gap-1.5 rounded-full bg-success/10 text-success px-3 py-1 font-medium">
-          <span class="h-1.5 w-1.5 rounded-full bg-success animate-pulse"></span>
-          {{ page.availability | default: "Available now" }}
-        </li>
-        <li class="inline-flex items-center gap-1.5 rounded-full bg-elevated text-muted px-3 py-1">
-          {% include icons/location.html size="h-3.5 w-3.5" %}
-          Remote · {{ site.data.site.author.timezone }}
-        </li>
-        {%- assign badges = page.badges | default: site.data.site.author.default_badges -%}
-        {%- for badge in badges %}
-        <li class="inline-flex items-center gap-1.5 rounded-full bg-elevated text-muted px-3 py-1">
-          {{ badge }}
-        </li>
-        {%- endfor %}
-      </ul>
-
-      {%- comment -%} Primary CTAs {%- endcomment -%}
-      <div class="flex flex-wrap items-center gap-3 pt-2">
-        <a
-          href="{{ site.data.site.contact.booking_url }}"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white no-underline hover:bg-accent-hover transition-colors"
-          data-track="calendly_click"
-          data-track-label="book_intro"
-          data-track-location="hero">
-          {% include icons/calendar.html size="h-4 w-4" %}
-          {{ site.data.site.contact.booking_label }}
-        </a>
-
-        <button
-          type="button"
-          class="inline-flex items-center gap-2 rounded-md border border-hairline px-5 py-3 text-sm font-medium text-ink hover:border-ink/30 transition-colors"
-          data-email
-          data-local="c2xtdXNheWV2"
-          data-domain="Z21haWwuY29t"
-          data-alias="{{ page.email_alias | default: 'blog' }}"
-          data-subject="Hello from your site ({{ page.variant | default: 'canonical' }})"
-          data-track="email_reveal"
-          data-track-label="email"
-          data-track-location="hero">
-          {% include icons/envelope.html size="h-4 w-4" %}
-          Email me
-        </button>
-
-        <a
-          href="{{ site.data.site.contact.linkedin_message_url }}"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 rounded-md border border-hairline px-5 py-3 text-sm font-medium text-ink hover:border-ink/30 transition-colors no-underline"
-          data-track="linkedin_click"
-          data-track-label="linkedin_message"
-          data-track-location="hero">
-          {% include icons/linkedin.html size="h-4 w-4" %}
-          Message on LinkedIn
-        </a>
-      </div>
+<section class="container-narrow mt-16 sm:mt-20">
+  <div class="flex items-center gap-4 mb-8">
+    <img
+      src="{{ '/images/01.jpg' | relative_url }}"
+      alt="Portrait of {{ site.data.site.author.name }}"
+      width="56"
+      height="56"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="h-14 w-14 rounded-full object-cover">
+    <div>
+      <h1 class="text-[15px] font-medium leading-snug">{{ site.data.site.author.name }}</h1>
+      <p class="text-muted leading-snug">{{ headline }}</p>
     </div>
   </div>
+
+  <p class="mb-4">{{ tagline }}</p>
+
+  <p class="text-muted mb-6">
+    {{ page.availability | default: "Available now" }}.
+    Remote, {{ site.data.site.author.timezone }}.
+    {%- for badge in badges %} {{ badge }}.{% endfor %}
+  </p>
+
+  <p class="flex flex-wrap gap-x-5 gap-y-2">
+    <button
+      type="button"
+      class="text-ink underline decoration-muted/40 underline-offset-[3px] hover:decoration-ink transition-colors"
+      data-email
+      data-local="c2xtdXNheWV2"
+      data-domain="Z21haWwuY29t"
+      data-alias="{{ page.email_alias | default: 'blog' }}"
+      data-subject="Hello from your site ({{ page.variant | default: 'canonical' }})"
+      data-track="email_reveal"
+      data-track-label="email"
+      data-track-location="hero">Email</button>
+
+    <a
+      href="{{ site.data.site.contact.linkedin_message_url }}"
+      target="_blank"
+      rel="noopener"
+      data-track="linkedin_click"
+      data-track-label="linkedin_message"
+      data-track-location="hero">LinkedIn</a>
+
+    {%- assign github = site.data.site.social | where: "icon", "github" | first -%}
+    {%- if github %}
+    <a
+      href="{{ github.url }}"
+      target="_blank"
+      rel="noopener"
+      data-track="outbound"
+      data-track-label="github"
+      data-track-location="hero">GitHub</a>
+    {%- endif %}
+  </p>
 </section>

@@ -5,40 +5,27 @@
 /*
  * Theme tokens.
  *
- * Colors are stored as space-separated RGB triplets so Tailwind's
- * `<alpha-value>` syntax (e.g. `bg-canvas/80`) works correctly.
+ * Four grayscale tones, nothing else: background, text, secondary text,
+ * and a hairline for borders. No accents, no gradients, no shadows.
  *
- * Light mode is the fallback. The `.dark` class on <html> overrides
- * the same variables, so any component using `bg-canvas`, `text-ink`,
- * etc. switches automatically with no `dark:` prefix needed.
+ * Values are space-separated RGB triplets so Tailwind's `<alpha-value>`
+ * syntax (e.g. `decoration-muted/40`) works. Light is the base; the
+ * `.dark` class on <html> overrides the same variables.
  */
 @layer base {
   :root {
-    --color-canvas:       255 255 255;
-    --color-surface:      250 250 250;
-    --color-elevated:     244 244 245;
-    --color-hairline:     228 228 231;
-    --color-ink:          9 9 11;
-    --color-muted:        82 82 91;
-    --color-subtle:       113 113 122;
-    --color-accent:       37 99 235;
-    --color-accent-hover: 29 78 216;
-    --color-success:      22 163 74;
-    --color-warning:      202 138 4;
+    --color-canvas:   252 252 252;
+    --color-ink:      17 17 17;
+    --color-muted:    107 107 107;
+    --color-hairline: 229 229 229;
+    color-scheme: light;
   }
 
   .dark {
-    --color-canvas:       9 9 11;
-    --color-surface:      24 24 27;
-    --color-elevated:     39 39 42;
-    --color-hairline:     39 39 42;
-    --color-ink:          250 250 250;
-    --color-muted:        161 161 170;
-    --color-subtle:       113 113 122;
-    --color-accent:       96 165 250;
-    --color-accent-hover: 147 197 253;
-    --color-success:      74 222 128;
-    --color-warning:      250 204 21;
+    --color-canvas:   17 17 17;
+    --color-ink:      237 237 237;
+    --color-muted:    160 160 160;
+    --color-hairline: 40 40 40;
     color-scheme: dark;
   }
 
@@ -49,18 +36,21 @@
   }
 
   body {
-    @apply bg-canvas text-ink font-sans antialiased;
+    @apply bg-canvas text-ink font-sans antialiased text-[15px] leading-relaxed;
     font-feature-settings: "ss01", "cv11";
   }
 
-  /* Visible, accessible focus styles for keyboard users only. */
-  :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas rounded-sm;
+  ::selection {
+    @apply bg-ink text-canvas;
   }
 
-  /* Headings: tight tracking, balanced wrapping where supported. */
+  /* Visible focus styles for keyboard users only. */
+  :focus-visible {
+    @apply outline-none ring-1 ring-ink ring-offset-2 ring-offset-canvas rounded-sm;
+  }
+
   h1, h2, h3, h4 {
-    @apply text-ink font-semibold tracking-tight;
+    @apply text-ink font-medium;
     text-wrap: balance;
   }
 
@@ -68,9 +58,9 @@
     text-wrap: pretty;
   }
 
-  /* Inline links inherit accent color and underline on hover. */
+  /* Inline links: same color as text, quiet underline that firms up on hover. */
   a {
-    @apply text-accent underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors;
+    @apply text-ink underline decoration-muted/40 underline-offset-[3px] transition-colors hover:decoration-ink;
   }
 }
 
@@ -78,17 +68,42 @@
   /* Skip-to-content link for screen readers and keyboard users. */
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
-           focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-white
-           focus:no-underline focus:shadow-lg;
+           focus:px-3 focus:py-2 focus:bg-ink focus:text-canvas focus:no-underline;
   }
 
-  /* Section wrapper with consistent vertical rhythm. */
-  .section {
-    @apply py-16 sm:py-20 lg:py-24;
-  }
-
-  /* Constrained content container. */
+  /* Single narrow column, like a page of text. */
   .container-narrow {
-    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+    @apply mx-auto w-full max-w-content px-4 sm:px-6;
+  }
+
+  /* Vertical rhythm between sections. */
+  .section {
+    @apply mt-16;
+  }
+
+  /* Small muted label that heads each section. */
+  .section-label {
+    @apply text-[15px] font-normal text-muted mb-6;
+  }
+
+  /* A list of title/description rows, each separated by space only. */
+  .rows {
+    @apply space-y-5;
+  }
+
+  /* Whole-row links: no underline on the row, underline the title on hover. */
+  .row-link {
+    @apply block no-underline;
+  }
+  .row-link:hover .row-title {
+    @apply underline decoration-muted/60 underline-offset-[3px];
+  }
+
+  .row-title {
+    @apply text-ink font-medium;
+  }
+
+  .row-meta {
+    @apply text-muted;
   }
 }

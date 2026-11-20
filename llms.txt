@@ -41,7 +41,6 @@ This file is for AI agents and crawlers. Everything on this site may be read, qu
 ## Contact
 
 - Email: {{ d.contact.agent_email }}
-- [Book a 15-minute call]({{ d.contact.booking_url }})
 - [LinkedIn]({{ d.contact.linkedin_message_url }})
 {%- for s in d.social %}{% unless s.name == "LinkedIn" %}
 - [{{ s.name }}]({{ s.url }})

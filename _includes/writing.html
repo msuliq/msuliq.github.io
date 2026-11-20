@@ -1,50 +1,43 @@
 {%- comment -%}
-  Writing section - Medium articles, posts, talks. Card list.
+  Writing: the latest few articles as title/summary rows, then a link to
+  the full archive on Medium. The full list stays in llms.txt and
+  llms-full.txt for agents.
 {%- endcomment -%}
 
-<section id="writing" class="container-narrow section">
-  <div class="max-w-prose mb-10">
-    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Writing</p>
-    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
-      Notes from the field.
-    </h2>
-    <p class="text-muted leading-relaxed">
-      A new article every week on security, fraud, authentication, and cryptography,
-      drawn from problems I've solved in production.
-    </p>
-  </div>
+{%- assign writing_limit = 5 -%}
+{%- assign medium = site.data.site.social | where: "icon", "medium" | first -%}
 
-  <ul class="space-y-3">
-    {%- for post in site.data.site.writing -%}
+<section id="writing" class="container-narrow section">
+  <h2 class="section-label">Writing</h2>
+
+  <ul class="rows">
+    {%- for post in site.data.site.writing limit: writing_limit -%}
     <li>
       <a
         href="{{ post.url }}"
         target="_blank"
         rel="noopener"
-        class="group flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 rounded-xl border border-hairline bg-surface p-6 no-underline hover:border-accent/40 transition-colors"
+        class="row-link"
         data-track="outbound"
         data-track-label="writing_{{ post.title | slugify }}"
         data-track-location="writing">
-
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="inline-flex items-center rounded bg-elevated px-2 py-0.5 text-xs font-mono text-muted">
-              {{ post.tag }}
-            </span>
-          </div>
-          <h3 class="text-base sm:text-lg font-semibold text-ink group-hover:text-accent transition-colors mb-1">
-            {{ post.title }}
-          </h3>
-          <p class="text-sm text-muted leading-relaxed">
-            {{ post.summary }}
-          </p>
-        </div>
-
-        <span class="text-muted group-hover:text-accent transition-colors flex-shrink-0 hidden sm:block mt-1">
-          {% include icons/external-link.html size="h-4 w-4" %}
-        </span>
+        <span class="block row-title">{{ post.title }}</span>
+        <span class="block row-meta">{{ post.summary }}</span>
       </a>
     </li>
     {%- endfor -%}
   </ul>
+
+  {%- if medium and site.data.site.writing.size > writing_limit %}
+  <p class="mt-6">
+    <a
+      href="{{ medium.url }}"
+      target="_blank"
+      rel="noopener"
+      class="text-muted hover:text-ink"
+      data-track="outbound"
+      data-track-label="writing_all"
+      data-track-location="writing">All writing</a>
+  </p>
+  {%- endif %}
 </section>

@@ -1,5 +1,5 @@
 {%- comment -%}
-  Resume download. Shows only the resume that matches page.variant, so
+  Resume download row. Shows only the resume that matches page.variant, so
   visitors never see the list of tailored variants. The download is saved
   under one neutral filename whatever the variant is.
 {%- endcomment -%}
@@ -10,20 +10,13 @@
   {%- assign resume = site.data.site.resumes | where: "variant", "canonical" | first -%}
 {%- endunless -%}
 
-<div class="rounded-xl border border-hairline bg-surface p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-  <div>
-    <h3 class="text-base font-semibold text-ink">Résumé</h3>
-    <p class="text-sm text-muted mt-1">PDF, updated {{ site.data.site.resume_updated }}.</p>
-  </div>
-
-  <a
-    href="{{ resume.file | relative_url }}"
-    download="{{ site.data.site.resume_download_name }}"
-    class="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white no-underline hover:bg-accent-hover transition-colors"
-    data-track="resume_download"
-    data-track-label="{{ resume.variant }}"
-    data-track-location="contact">
-    {% include icons/download.html size="h-4 w-4" %}
-    Download résumé
-  </a>
-</div>
+<a
+  href="{{ resume.file | relative_url }}"
+  download="{{ site.data.site.resume_download_name }}"
+  class="row-link"
+  data-track="resume_download"
+  data-track-label="{{ resume.variant }}"
+  data-track-location="contact">
+  <span class="block row-title">Résumé</span>
+  <span class="block row-meta">PDF, updated {{ site.data.site.resume_updated }}.</span>
+</a>

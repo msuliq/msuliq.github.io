@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
 
 {%- assign page_title = page.title | default: site.data.site.author.name -%}
 {%- assign page_desc  = page.description | default: site.description -%}
@@ -58,18 +58,26 @@
 
 <!--
   Theme bootstrap - runs synchronously before paint to prevent FOUC.
-  Default is dark; only flips to light if the user explicitly chose it.
+  Order: the visitor's saved toggle choice, then the OS preference, then
+  dark if neither can be read. <html> ships with class="dark" so visitors
+  without JavaScript also get dark.
 -->
 <script>
   (function () {
+    var theme = 'dark';
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
+      if (stored === 'light' || stored === 'dark') {
+        theme = stored;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        theme = 'light';
       }
-    } catch (e) { /* localStorage unavailable - keep default dark */ }
+    } catch (e) {
+      try {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
+      } catch (e2) { /* keep dark */ }
+    }
+    document.documentElement.classList.toggle('dark', theme === 'dark');
   })();
 </script>
 

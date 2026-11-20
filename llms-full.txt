@@ -11,7 +11,6 @@ permalink: /llms-full.txt
 - Available for: advisory, consulting, and freelance projects. Also open to {{ d.author.open_to }}
 - Website: {{ '/' | absolute_url }}
 - Email: {{ d.contact.agent_email }}
-- Book a call: {{ d.contact.booking_url }}
 - Structured version of this file: {{ '/profile.json' | absolute_url }}
 
 ## Summary

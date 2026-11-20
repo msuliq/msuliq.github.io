@@ -32,12 +32,11 @@ contact:
   # llms-full.txt, profile.json). The HTML pages keep the obfuscated
   # click-to-reveal button. Same address the resume PDFs already print.
   agent_email: "slmusayev+agents@gmail.com"
-  booking_url: "https://calendly.com/msuliq"
-  booking_label: "Book a 15-min intro"
   linkedin_message_url: "https://www.linkedin.com/in/smusayev"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Social profiles - rendered in the footer and contact section.
+# Social profiles - rendered in the footer; GitHub and Medium are also
+# linked from the hero and the writing section.
 # ─────────────────────────────────────────────────────────────────────────────
 social:
   - name: LinkedIn
@@ -57,7 +56,7 @@ social:
     icon: medium
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Open source projects - rendered as cards. Stars are fetched live via
+# Open source projects - rendered as rows. Stars are fetched live via
 # the GitHub public API at page load (cached 1h in localStorage).
 # ─────────────────────────────────────────────────────────────────────────────
 open_source:
@@ -104,7 +103,8 @@ open_source:
     language: Ruby
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Writing - Medium articles, blog posts, talks.
+# Writing - Medium articles, newest first. The site shows the first five;
+# llms.txt and llms-full.txt list all of them.
 # ─────────────────────────────────────────────────────────────────────────────
 writing:
   - title: Rendering User-Supplied SVG Without Getting Burned
@@ -205,7 +205,7 @@ writing:
     tag: Authentication
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Tech stack - surfaced as a grid for recruiter SEO and quick scanning.
+# Tech stack - not rendered on pages; feeds profile.json and llms-full.txt.
 # ─────────────────────────────────────────────────────────────────────────────
 tech_stack:
   - category: Languages
@@ -232,8 +232,8 @@ tech_stack:
     items: [Docker, Linux, Nginx, AWS, GitHub Actions, Datadog]
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Work history - rendered as a vertical timeline of cards.
-# Each role lists 3-5 highlight bullets with concrete impact.
+# Work history. Pages show the first three highlights per role;
+# llms-full.txt and profile.json carry all of them.
 # ─────────────────────────────────────────────────────────────────────────────
 work:
   - company: SSL.com
@@ -289,66 +289,6 @@ work:
       - Managed a large leveraged portfolio with rigorous risk control and capital efficiency.
       - Self-taught Ruby in parallel during this role, transitioning to engineering by mid-2022.
     stack: [Python, C++, SQL]
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Hero metric badges per variant. Each variant page picks the right set
-# via {{ site.data.site.metrics[page.variant] }}.
-# ─────────────────────────────────────────────────────────────────────────────
-metrics:
-  canonical:
-    - value: "10×"
-      label: "core business scale as sole architect"
-    - value: "5×"
-      label: "backend latency reduction"
-    - value: "14"
-      label: "gems published, 60k+ downloads"
-    - value: "2× ROI"
-      label: "pay me $1, save $2. My goal for every engagement"
-  security:
-    - value: "4 days"
-      label: "to kill a high-cost SMS fraud attack"
-    - value: "1k+/day"
-      label: "bot accounts detected and blocked"
-    - value: "Minutes"
-      label: "from detection to mitigation"
-    - value: "Top-10"
-      label: "global certificate authority"
-  product:
-    - value: "5×"
-      label: "latency reduction"
-    - value: "+15%"
-      label: "user retention"
-    - value: "4"
-      label: "features in 12 months"
-    - value: "1k DAU"
-      label: "early-stage scale"
-  startup:
-    - value: "0→1"
-      label: "auth system architect"
-    - value: "6 mo"
-      label: "Ruby zero to senior"
-    - value: "Multi-hat"
-      label: "backend · security · ops"
-    - value: "Cross-domain"
-      label: "finance + engineering"
-  services:
-    - value: "10×"
-      label: "core business scale as sole architect"
-    - value: "5×"
-      label: "faster backend after my fixes"
-    - value: "Fixed"
-      label: "price per project, agreed up front"
-    - value: "Yours"
-      label: "code, accounts, and credentials"
-  bigtech:
-    - value: "10×"
-      label: "core business scale"
-    - value: "10k+"
-      label: "auth engine DAU"
-    - value: "Distributed"
-      label: "architecture lead"
-    - value: "5×"
-      label: "perf improvement"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Services page (services.html) - what I build for support and ops teams,
@@ -472,7 +412,7 @@ case_studies:
 process:
   - step: Tell me what your team does by hand
     body: >-
-      A 15-minute call or a short message. Which tools, which steps, and how often.
+      A short message, or a call if it helps. Which tools, which steps, and how often.
   - step: Written scope and a fixed price
     body: >-
       What it will do, what it will not do, and how we will both know it is done. You

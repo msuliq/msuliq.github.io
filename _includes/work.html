@@ -1,58 +1,34 @@
 {%- comment -%}
-  Work / experience timeline. Each role is a card with header (company,
-  role, period, location), summary paragraph, highlight bullets, and a
-  stack pill row.
+  Work / experience. Each role is a plain block: role and company with
+  the period on the right, a summary, and up to three highlights.
 {%- endcomment -%}
 
 <section id="work" class="container-narrow section">
-  <div class="max-w-prose mb-12">
-    <p class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Experience</p>
-    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
-      Where I've built and shipped.
-    </h2>
-    <p class="text-muted leading-relaxed">
-      Writing software since 2014, shipping production systems since 2022. Before
-      engineering: quantitative trading and five years of government relations at an
-      oil major. Each role taught me a different way to think about risk under pressure.
-    </p>
-  </div>
+  <h2 class="section-label">Work</h2>
 
-  <ol class="space-y-6">
+  <p class="mb-8">
+    Writing software since 2014, shipping production systems since 2022. Before
+    engineering: quantitative trading and five years of government relations at an
+    oil major.
+  </p>
+
+  <ol class="space-y-10">
     {%- for role in site.data.site.work -%}
     <li>
-      <article class="rounded-xl border border-hairline bg-surface p-6 sm:p-8">
-        <header class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
-          <div>
-            <h3 class="text-lg sm:text-xl font-semibold text-ink">
-              {{ role.role }} · <span class="text-accent">{{ role.company }}</span>
-            </h3>
-            <p class="text-sm text-muted mt-1">{{ role.location }}</p>
-          </div>
-          <p class="text-sm font-mono text-muted whitespace-nowrap">{{ role.period }}</p>
+      <article>
+        <header class="flex flex-wrap items-baseline justify-between gap-x-4 mb-2">
+          <h3 class="row-title">{{ role.company }}</h3>
+          <p class="text-muted text-sm tabular-nums whitespace-nowrap">{{ role.period }}</p>
         </header>
+        <p class="text-muted mb-3">{{ role.role }}</p>
 
-        <p class="text-muted leading-relaxed mb-5 max-w-prose">
-          {{ role.summary }}
-        </p>
+        <p class="mb-3">{{ role.summary }}</p>
 
-        <ul class="space-y-2 mb-5">
-          {%- for h in role.highlights -%}
-          <li class="flex gap-3 text-sm sm:text-base text-ink leading-relaxed">
-            <span class="text-accent mt-1.5 flex-shrink-0" aria-hidden="true">▸</span>
-            <span>{{ h }}</span>
-          </li>
+        <ul class="space-y-1.5 text-muted">
+          {%- for h in role.highlights limit: 3 -%}
+          <li class="pl-4 relative before:content-['–'] before:absolute before:left-0">{{ h }}</li>
           {%- endfor -%}
         </ul>
-
-        {%- if role.stack -%}
-        <ul class="flex flex-wrap gap-1.5">
-          {%- for tech in role.stack -%}
-          <li class="inline-flex items-center rounded-md bg-elevated text-muted px-2 py-1 text-xs font-mono">
-            {{ tech }}
-          </li>
-          {%- endfor -%}
-        </ul>
-        {%- endif -%}
       </article>
     </li>
     {%- endfor -%}
